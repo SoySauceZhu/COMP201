@@ -1,31 +1,31 @@
-name: Build and Deploy
+# name: Build and Deploy
 
-on:
-  push:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    # Step 1: Check out the code
-    - name: Checkout repository
-      uses: actions/checkout@v3
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#     # Step 1: Check out the code
+#     - name: Checkout repository
+#       uses: actions/checkout@v3
 
-    # Step 2: Install markdown-to-html-cli globally
-    - name: Install markdown-to-html-cli
-      run: npm i markdown-to-html-cli -g
+#     # Step 2: Install markdown-to-html-cli globally
+#     - name: Install markdown-to-html-cli
+#       run: npm i markdown-to-html-cli -g
 
-    # Step 3: Generate HTML from Markdown
-    - name: Generate HTML
-      run: |
-        mkdir -p output
-        markdown-to-html --source note.md --output ./output/index.html
+#     # Step 3: Generate HTML from Markdown
+#     - name: Generate HTML
+#       run: |
+#         mkdir -p output
+#         markdown-to-html --source note.md --output ./output/index.html
 
-    # Step 4: Deploy to GitHub Pages
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./output
+#     # Step 4: Deploy to GitHub Pages
+#     - name: Deploy to GitHub Pages
+#       uses: peaceiris/actions-gh-pages@v3
+#       with:
+#         github_token: ${{ secrets.GITHUB_TOKEN }}
+#         publish_dir: ./output
