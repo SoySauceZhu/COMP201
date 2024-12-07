@@ -48,6 +48,7 @@
   
 ## Layered Applications Architecture
 A modern application usually has 3 layers
+
   - Presentation Layer. i.e. GUI
   - Applications processing Layer
   - Data layer. i.e. database
