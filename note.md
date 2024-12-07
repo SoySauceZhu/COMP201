@@ -144,12 +144,12 @@
 
 ## Lecture 16 Distributed System Architecture
 
-- System Types
+### System Types
   - Personal System
   - Embedded System
   - Distributed System
 
-- Distributed System Characteristics
+### Distributed System Characteristics
   - Resource Sharing
   - Openness
   - Concurrency
@@ -158,15 +158,15 @@
   - Transparency
   - disadvantages: complex, security, manageability, unpredictability
 
-- Middleware
+### Middleware
   - manage and supports different components of a distributed system
   - usually off-the-shelf  
 
-- Distributed System Architectures 
+### Distributed System Architectures 
   - Client-server: Services are called by clients, and server response to the request (sockets)
   - Distributed object architecture: each object can provide to others and use services from others (remote methods)
 
-- Architectural Models
+### Architectural Models
   - Multi-processor
     - Simplest distributed system model
     - System run task as processes at same time on different processor
@@ -187,28 +187,28 @@
       - Flexible and Scalable
       - Dynamically configuration as the objects can migrating across the networks
   
-- Layered Applications Architecture
+### Layered Applications Architecture
   - Presentation Layer
   - Applications processing Layer
   - data layer
 
-- Thin and Fat clients
+### Thin and Fat clients
   - Thin: server handles the application layer and data later
   - Fat: clients handle the application layer, server only send data
   - Nowadays, it is combined. Backend running some security applications, and front end like mobile apps run the thick processing or simply thin UI 
 
-- Three-Tier architecture
+### Three-Tier architecture
   - Each layer runs on separate processor. i.e. on more than one server
   - suitable for large scale applications with thousands of clients
   ![3-tier client-server architecture](./resources/image.png)
 
 
 ## Lecture 17 OOP
-- Object Oriented
+### Object Oriented
   - object incorporate both data structure and behavior
   - System functionality is expressed in terms of object services 
 
-- Object
+### Object
   - behavior + state + identity
     - state
       - state of an object is all the data that it encapsulated
@@ -226,29 +226,29 @@
   - NB: How object behave may change as the current internal state of the object varies
   - pros: no centralized data, only communicate by messaging. Independent encapsulated easy for maintenance
 
-- message
+### message
   - a message includes a selector, i.e. the method that returns the message. 
   - A message may have arguments 
 
-- interface
+### interface
   - the public interface of a object defines which messages will be accepted
   - an object can also send message to self, this is managed by public or private interface
   - public interface: any part of the system can use
   - private interface: object itself or other privileged components of the system
   - An object can have several interfaces that from different view of point
 
-- Class
+### Class
   - each object is an instance of a class
   - class defines the message understandable as well as how object will response
   - each instance has his own state, but share a same `static` state of the class
   - A class encapsulates data and behavior, hiding the Implementation details
 
-- Inheritance
+### Inheritance
   - inheritance is the sharing of attributes and operations in the hierarchy relationship
   - subclass(superclass)
   - Object class is always coupled to its superclass
 
-- Polymorphism
+### Polymorphism
 ```java
 Doctor dc1 = new Surgeon("Mingjie");
 Doctor dc2 = new GeneralPracticer("mingjie");
@@ -258,7 +258,7 @@ public void callDoctor(Doctor dc) {
 }
 ```
 
-- Dynamic Binding
+### Dynamic Binding
 The `print` method is bind dynamically to the subclass in the main method
 ```java
 public class Printer {
@@ -279,6 +279,6 @@ public static void main(String[] args) {
 }
 ```
 
-- UML
+### UML
   - UML is a language for specifying, visualizing and documenting
 

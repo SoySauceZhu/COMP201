@@ -2,12 +2,12 @@ site_name: "COMP201: Software Engineering"
 theme:
   name: material
   features:
-    - navigation.tabs
-    - navigation.sections
+    # - navigation.tabs
+    # - navigation.sections
     - toc.integrate
-    - navigation.top
-    - search.suggest
+    # - navigation.top
     - search.highlight
+    - search.suggest
     - content.tabs.link
     - content.code.annotation
     - content.code.copy

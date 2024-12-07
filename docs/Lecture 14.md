@@ -1,4 +1,7 @@
-# Lecture 14 Design Methodology
+# Lecture 14
+
+## Design Methodology
+
 ## Software Deign
   - the design process is to derive a software solution that satisfy requirements. 
 
