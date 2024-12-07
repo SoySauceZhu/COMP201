@@ -47,9 +47,10 @@
       - Dynamically configuration as the objects can migrating across the networks
   
 ## Layered Applications Architecture
-  - Presentation Layer
+A modern application usually has 3 layers
+  - Presentation Layer. i.e. GUI
   - Applications processing Layer
-  - data layer
+  - Data layer. i.e. database
 
 ## Thin and Fat clients
   - Thin: server handles the application layer and data later
