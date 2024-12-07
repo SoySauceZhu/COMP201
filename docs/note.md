@@ -1,21 +1,22 @@
+### Lecture Note
 
-# Lecture 14 Design Methodology
-- Software Deign
+## Lecture 14 Design Methodology
+### Software Deign
   - the design process is to derive a software solution that satisfy requirements. 
 
-- What is a good system
+### What is a good system
   - Useful and usable
   - Reliable (low coupling)
   - Flexible (low coupled, high cohesion)
   - Affordable (Reusability)
   - Available (dev cost optimized by reusing)
 
-- Module Interface
+### Module Interface
   - abstraction
   - encapsulation: others cannot know the internal info unless interface allows
   - change of internal state of a module doesn't affect other part of the system
 
-- Principles for good design
+### Principles for good design
   - Linguistic Modular Unit
     - i.e. Java classes. BASIC language is not Linguistic
   - Few interfaces
@@ -28,13 +29,13 @@
   - Information hiding
     - Make everything private
 
-- Coupling
+### Coupling
   - loose coupling means changes in a components not affect other components
   - bad practice is 'shared variables/control event'
   - good practice is 'decentralization / store states inside objects instead of shared repo'
   - OOP is loosely coupled. Because no shared state and communication achieved by message passing. However, each object always coupled with its super-class
 
-- Cohesion
+### Cohesion
   - each components only handle one problem logically
   - Inheriting attributes from super-class weakens cohesion
   - various levels:
@@ -49,40 +50,40 @@
     - cohesion: how good the functionality of module is organized logically
     - encapsulation: how good the data and methods are protected
 
-- Reusability
+### Reusability
   - Reusability ensures low cost of software
 
-- Stepwise Refinement
+### Stepwise Refinement
   - Top-down split problems
   - Recursively refine
   - Until problem can be solved in 7-lines for example
 
-- Good Practice: High Cohesion, Loose Coupling with good interface
+### Good Practice: High Cohesion, Loose Coupling with good interface
   - If so, the module is easy to reuse or even pluggable
 
 
 
-# Lecture 15 Distributed System Architectures
+## Lecture 15 Distributed System Architectures
 
-- Software Architectures
+### Software Architectures
   - Architectural Design: 
     - The early stage of design process, generate description of architecture
     - Focuses on sub-systems (System components) and their communication & control
     - In parallel with other specification design
   
-- Architectural Design process
+### Architectural Design process
   - System structuring: decompose systems into components and identify the communication
   - Control modelling: determine the model of control relationship between components
   - Modular decomposition: decompose sub-systems into modules
 
-- Sub-systems and Modules
+### Sub-systems and Modules
   - Sub-system: operation independently, separately. i.e. JAVA packages, login system
   - Modules: in a sub-system, but work together.  
 
-- Benefit of subsystem modelling
+### Benefit of subsystem modelling
   - Re-assemble subsystem to build new system
 
-- Architectural Models
+### Architectural Models
   - Different models may be produce during the design process
   - Different perspective gives different Architectures
     - Static structural: merely show the components
@@ -90,15 +91,15 @@
     - Interface model: define sub-system Interface
     - relationship model: data-flow model
 
-- System structuring
+### System structuring
   - decompose the system into interacting components (sub-systems)
   - use Block Diagram
 
-- Repository Models: data exchange between subsystem
+### Repository Models: data exchange between subsystem
   - central database: suitable for large data
   - internal database: each components pass data to each other
 
-- Client-Server Architecture
+### Client-Server Architecture
   - components
     - servers
     - clients: call on services
@@ -111,7 +112,7 @@
     - Redundant management in servers
     - Hard to parse server and services
 
-- Control model
+### Control model
   - centralized control
     - one of subsystems control others
     - call-return model
@@ -132,7 +133,7 @@
       - used in real time system, fast response
       - there is a handler in each interrupt types. i.e. INTERRUPT A -> LED1, INTERRUPT B -> LED2 
 
-- Modular decomposition
+### Modular decomposition
   - object model
     - loosely coupled objects and well-define interfaces
     - include: classes, attribute, operations
@@ -141,7 +142,7 @@
     - not suitable for interactive system
 
 
-# Lecture 16 Distributed System Architecture
+## Lecture 16 Distributed System Architecture
 
 - System Types
   - Personal System
@@ -199,10 +200,10 @@
 - Three-Tier architecture
   - Each layer runs on separate processor. i.e. on more than one server
   - suitable for large scale applications with thousands of clients
-  ![3-tier client-server architecture](resources/image.png)
+  ![3-tier client-server architecture](./resources/image.png)
 
 
-# Lecture 17 OOP
+## Lecture 17 OOP
 - Object Oriented
   - object incorporate both data structure and behavior
   - System functionality is expressed in terms of object services 
