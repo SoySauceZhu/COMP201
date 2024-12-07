@@ -1,4 +1,4 @@
-### Lecture Note
+# Lecture Note
 
 ## Lecture 14 Design Methodology
 ### Software Deign
@@ -282,3 +282,7 @@ public static void main(String[] args) {
 ### UML
   - UML is a language for specifying, visualizing and documenting
 
+
+
+
+## Lecture 18 Hotel Booking System - case study
