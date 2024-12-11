@@ -8,22 +8,22 @@
   - System functionality is expressed in terms of object services 
 
 ## Object
-  - behavior + state + identity
+- behavior + state + identity
     - state
-      - state of an object is all the data that it encapsulated
-      - objects has a number of attributes
-      - some attributes are mutable (address, reference) at the immutable
+        - state of an object is all the data that it encapsulated
+        - objects has a number of attributes
+        - some attributes are mutable (address, reference) at the immutable
     - behavior
-      - an object can understand certain messages, the messages is normally fixed like the set of attribute it has 
-    - identity 
-      -objects are not defined just by the current value of their attributes
-      - the state of an object may change but is still the same object logically 
+        - an object can understand certain messages, the messages is normally fixed like the set of attribute it has 
+  - identity 
+    -objects are not defined just by the current value of their attributes
+    - the state of an object may change but is still the same object logically 
 
-  - Firstly, don't think water and object will have, instead think what will it do for the system
-  - objects are potentially reusable components
-  - An object is the thing you can interact with, i.e. You can send your request and get reaction.
-  - NB: How object behave may change as the current internal state of the object varies
-  - pros: no centralized data, only communicate by messaging. Independent encapsulated easy for maintenance
+- Firstly, don't think water and object will have, instead think what will it do for the system
+- objects are potentially reusable components
+- An object is the thing you can interact with, i.e. You can send your request and get reaction.
+- NB: How object behave may change as the current internal state of the object varies
+- pros: no centralized data, only communicate by messaging. Independent encapsulated easy for maintenance
 
 ## message
   - a message includes a selector, i.e. the method that returns the message. 
