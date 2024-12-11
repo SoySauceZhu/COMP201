@@ -1,5 +1,6 @@
 # Lecture Note
 
+
 ## Lecture 14 Design Methodology
 ### Software Deign
   - the design process is to derive a software solution that satisfy requirements. 
@@ -303,5 +304,13 @@ Use case of a hotel booking system may include
 ### Noun analysis
 - Identifying nous in requirement helps to discover class names.
 - Nouns in requirement may lead to classes name or attributes name or nothing.
+- Attributes is inferred from document.
 
-### Inferring attributes 
+### OO analysis
+Complete the class diagram:
+- Includes attributes
+- Relationship to other classes
+- Add method according to responsibility
+
+### Class Diagram
+![Class Diagram](resources/image4.png)
