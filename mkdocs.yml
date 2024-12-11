@@ -50,3 +50,13 @@ extra:
     - icon: fontawesome/brands/github 
       link: https://github.com/SoySauceZhu/COMP201
       name: github@SoySauceZhu
+
+
+nav:
+- Welcome: index.md
+- Lecture2: Lecture2.md
+- Lecture14: Lecture14.md
+- Lecture15: Lecture15.md
+- Lecture16: Lecture16.md
+- Lecture17: Lecture17.md
+- Lecture18: Lecture18.md
