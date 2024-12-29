@@ -103,3 +103,12 @@ Testing:
 Software inspection check everything from requirement, specification, UML diagram, coding, test data, etc.
 - Involved people: programmer and another inspector
 - Inspection is only'looking' for problems. So you can start inspecting before implementation phase 
+
+## Structural Testing
+- AKA white box testing
+- The objective is to make sure every statement (every line) of code is working correctly
+
+## Path Testing
+- Make sure every branch (path) in program is tested and executed at least once
+- Related to program flow diagram
+- Minimum number of test you should do = "number of edges - number of nodes + 2" (in a program flow diagram)
