@@ -68,6 +68,10 @@ Conflict equivalence focus on Order of conflicting operations. Two schedules are
 > (3) It is the start log of the first uncommitted checking txn
 ![alt text](image-6.png){width=700px}
 
+5. Checkpoint
+      1. Can be used to make the size of log file smaller
+      2. ARIES checkpoint does not necessarily slower than simple checkpoints
+![alt text](image-7.png){width=700px}
 
 ### Recoverability (safety)
 This part consider about recoverability, focusing on operation to one shared item, and have nothing to do with serializable.
@@ -75,36 +79,69 @@ This part consider about recoverability, focusing on operation to one shared ite
 | **Property**     | **Key Condition**                                                                                 | **Implication**                                                                                        |
 |------------------|---------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
 | **Recoverable** (RC)  | A transaction that has read uncommitted data must commit *after* the writer commits.              | Prevents the committed transaction from depending on a later-aborted transaction.                     |
-| **Cascadeless** (CC)  | No transaction reads uncommitted data (i.e., reads only committed values).                        | Prevents “cascading” aborts; also implies RC (recoverable).                                           |
+| **Cascadeless** (CC)  | No transaction reads uncommitted data (i.e., reads only committed values aka dirty read).                        | Prevents “cascading” aborts; also implies RC (recoverable).                                           |
 | **Strict** (ST)       | No transaction reads **or writes** data written by an uncommitted transaction.                   | Strongest condition; implies CC (and thus RC). Simplifies recovery by avoiding any use of uncommitted data. |
 
 - Strict 2PL: All **exclusive** (write) locks are held by a transaction until that transaction commits or aborts.
 - Strict 2PL ensures strict schedule, but basic 2PL doesn't.
 - Strict 2PL doesn't ensure serial. Since 2PL focus on Isolation when two txn touch one item.  
-You can have interleaved txns touching different items
+You can have interleaved txns **touching different items**
 - Strict >> Cascadeless >> Recoverable
+- Strict >> Serializable, serializable + unlock after commit => strict
 
 - Example:
-    -  not recoverable: w1(X) r2(X) c2 c1
+    -  not recoverable: w1(X) r2(X) c2 c1  
+    (c1 might abort, thus T2 is depending on later aborted T1)
     - recoverable: w1(X) w2(X) r2(X) c2 c1.  
     Since what T2 read is previously modified by itself. In other word, T2 doesn't depend on T1
     - cascading: w1(X) r2(X) c1 c2.  
     Aborting T1 should roll back T2 as well since T2 depends on T1
     - cascadeless: w1(X) w2(X) c1 c2.     
     Aborting T1 will not affect T2, since T2 doesn't depend on T1
+    - recoverable but not serializable: w2(X) w1(X) r2(X) c1 c2  
+    (cyclic precedence graph)
+    - Serializable but not recoverable: w1(X) r2(X) w2(X) c2 c1  
+    (equivalent to T2 -> T1, X is written by T1)
+    - Deadlock can happen in strict schedule.  
+    Strict schedule and strict 2PL describe how to ensure isolation. Deadlock describe how to assign two txns to schedule.  i.e. A partial schedule is strict yet has a deadlock.
+
+> Deadlock May happen  
+> ![alt text](image-8.png){width=700px}
 
 ### Timestamp 
-- Timestamp helps Detecting deadlock and make scheduler to abort some txn
-      - Wait-Die: If older waits for younger, older wait. If younger wait for older, younger roll back and abort (not allowed).  
-      only older transactions are allowed to wait, so no cyclic dependencies created
-      - Would-Wait: If older wait for younger, younger roll back. If younger wait for older, younger wait.  
-      only younger transactions are allowed to wait, so no cyclic dependencies created
+- Deadlock detection:
+    - Wait-for graph
+    - Timestamp based:
+        - Time-out scheme
+        - Wait-die scheme (both detect & prevent)
+        - Wound-wait scheme (both detect & prevent)
+
+- Timestamp helps Detecting deadlock and let scheduler abort some txn
+      - Wait-Die: If older waits for younger, older wait. If younger wait for older, younger roll back and abort (not allowed) (restart with same timestamp).  
+      - Wound-Wait: If older wait for younger, older preempts younger txn, younger roll back. If younger wait for older, younger wait.  
+     ![alt text](image-9.png){width=700px}
 
 - Timestamp to prevent dead lock
     - Prevent (abort and restart) read request of an item if it is written in the future
     - Prevent (abort and restart) write request of an item if it is read or written in the future
 
+- Timestamp-based scheduling
+    - Pro:
+        - Enforce conflict-schedule (N.B. 2PL ensure serializability)
+        - Prevent deadlock 
+    - Con:
+        - Cascading roll backs
+        - Starvation may occur (cyclic aborts and restart). Starvation can be prevent.
+
+    - Timestamp based schedule may not ensure strict schedule.
+        - Additional condition: Delay all read and write requests until the youngest transaction who wrote the item has committed
+
+- Q1: **TODO**
+> ![alt text](image-10.png){width=700px}
+> ![alt text](image-11.png){width=700px}
+
 - MVCC:
     - Each txn keeps a copy of dirty page
     - Grant all read request to txns
     - Grand write request only if items is NOT read in the future, otherwise abort and restart
+    - There is also a strict variant, where you delay reads until the transaction you read from commits
