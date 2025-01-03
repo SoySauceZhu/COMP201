@@ -7,9 +7,8 @@
 
 - Q1
 > 1. Note, short hand notation only cares write and read operation, and ignores calculations. So two identical short hand schedule may have different result.  
-![alt text](image-4.png){width=700px}
-![alt text](image-5.png){width=700px}
-
+![alt text](resources/207/image-4.png){width=700px}
+![alt text](resources/207/image-5.png){width=700px}
 
 - *Equivalent*  
 Conflict equivalence focus on Order of conflicting operations. Two schedules are conflict-equivalent if:
@@ -19,6 +18,8 @@ Conflict equivalence focus on Order of conflicting operations. Two schedules are
 - *Serializable*
       - Best by represent precedence graph, and find the path
       - **2PL guarantees serializable**. While normal locks don't.
+      - Ex. S: r1(X); w1(X); r2(Y); w3(Z); r3(X); c3; c1; r2(Z); c2;  
+      Is NOT serial. It is not one txn after another
 
 ### ACID
 1. Q1
@@ -27,7 +28,7 @@ Conflict equivalence focus on Order of conflicting operations. Two schedules are
 > 3. Durability: Durability consider whether a update that considered as committed (by schedule or by log file) is missing.  
 > i.e. *If the system commits a transaction but does not actually write the data (or logs) to non-volatile storage, then a power loss or crash could erase the changes. This breaks durability because the transaction’s changes are not permanently saved.*   
 > Since in the question all updates (even half-executed) are saved to non-volatile memory (which breaks atomicity), durability is not violated.  
-![alt text](image.png){ width=700px }
+![alt text](resources/207/image.png){ width=700px }
 
 2. What Ensures ACID? 
 - Isolation ensures that intermediate states of a transaction are not visible to other transactions. (Serial guarantees isolation)
@@ -50,28 +51,28 @@ Conflict equivalence focus on Order of conflicting operations. Two schedules are
 > 1. Undo/Redo logging -- both D & A 
 > 2. Force -- Durability, all committed updates are forces to reflected in non-volatile
 > 3. No Steal -- Atomicity, NO STEAL policy ensures that dirty pages (pages modified by uncommitted transactions aka. half-done updates) are not written to disk before the transaction commits.  
-![alt text](image-1.png){ width=700px }
+![alt text](resources/207/image-1.png){ width=700px }
 
 2. Q2
 > 1. I think he is bullshitting.
 > 2. 找补: The file structure is identical, so it is possible to recover a redo log file under undo protocol.  
-![alt text](image-2.png){width=700px}
+![alt text](resources/207/image-2.png){width=700px}
 
 3. Q3
 > 1. You can't apply redo or undo protocol on undo/redo log file since the data structure is not compatible.  
-![alt text](image-3.png){width=700px}
+![alt text](resources/207/image-3.png){width=700px}
 
 4. Q4
 > 1. The expected starting log index satisfy:  
 > (1) CHECKPOINT & END CHECKPOINT both occurs after it  
 > (2) It is a Start log or the first line  
 > (3) It is the start log of the first uncommitted checking txn
-![alt text](image-6.png){width=700px}
+![alt text](resources/207/image-6.png){width=700px}
 
 5. Checkpoint
       1. Can be used to make the size of log file smaller
       2. ARIES checkpoint does not necessarily slower than simple checkpoints
-![alt text](image-7.png){width=700px}
+![alt text](resources/207/image-7.png){width=700px}
 
 ### Recoverability (safety)
 This part consider about recoverability, focusing on operation to one shared item, and have nothing to do with serializable.
@@ -87,7 +88,7 @@ This part consider about recoverability, focusing on operation to one shared ite
 - Strict 2PL doesn't ensure serial. Since 2PL focus on Isolation when two txn touch one item.  
 You can have interleaved txns **touching different items**
 - Strict >> Cascadeless >> Recoverable
-- Strict >> Serializable, serializable + unlock after commit => strict
+- ==Strict >> Serializable, serializable + unlock after commit => strict==
 
 - Example:
     -  not recoverable: w1(X) r2(X) c2 c1  
@@ -105,8 +106,30 @@ You can have interleaved txns **touching different items**
     - Deadlock can happen in strict schedule.  
     Strict schedule and strict 2PL describe how to ensure isolation. Deadlock describe how to assign two txns to schedule.  i.e. A partial schedule is strict yet has a deadlock.
 
-> Deadlock May happen  
-> ![alt text](image-8.png){width=700px}
+- Question
+> Deadlock May happen in recoverable schedule  
+> T1: w1(X) w1(Y)  
+> T2: w2(Y) w2(X)   
+> Partial schedule that lead to deadlock: w1(X) w2(Y) __ __ c1 c2
+> 2PL lock schedule also may occur deadlock: w1(X) w2(Y) __ __  
+> ==In other word, follow (strict-)2PL doesn't mean deadlock-free==   
+> ==Prevent deadlock: Timestamp-bases protocols (i.e. wound-wait), time out protocols==
+> ![alt text](resources/207/image-8.png){width=700px}
+
+- Additional question
+> ![alt text](resources/207/image-13.png){width=700px}
+
+- Question
+> No conflict mean not possible for different txns to read same item, therefore no read dirty page, all strict schedule
+> ![alt text](resources/207/image-14.png){width=700px}
+
+
+- Question
+> Serializable and strict  
+> I think Strict guarantees Serializability,  
+> since is you don't read or write uncommitted data, you naturally have all conflict operation pairs in same order.  
+> ![alt text](resources/207/image-12.png){width=700px}
+
 
 ### Timestamp 
 - Deadlock detection:
@@ -116,12 +139,14 @@ You can have interleaved txns **touching different items**
         - Wait-die scheme (both detect & prevent)
         - Wound-wait scheme (both detect & prevent)
 
-- Timestamp helps Detecting deadlock and let scheduler abort some txn
+- Timestamp helps Detecting deadlock and let scheduler abort some txn (==same timestamp==)   
+==This is related to lock and dependencies.==
       - Wait-Die: If older waits for younger, older wait. If younger wait for older, younger roll back and abort (not allowed) (restart with same timestamp).  
       - Wound-Wait: If older wait for younger, older preempts younger txn, younger roll back. If younger wait for older, younger wait.  
-     ![alt text](image-9.png){width=700px}
+     ![alt text](resources/207/image-9.png){width=700px}
 
-- Timestamp to prevent dead lock
+- Timestamp to prevent dead lock (==new timestamp==)  
+==This only cares about timestamp==
     - Prevent (abort and restart) read request of an item if it is written in the future
     - Prevent (abort and restart) write request of an item if it is read or written in the future
 
@@ -137,8 +162,8 @@ You can have interleaved txns **touching different items**
         - Additional condition: Delay all read and write requests until the youngest transaction who wrote the item has committed
 
 - Q1: **TODO**
-> ![alt text](image-10.png){width=700px}
-> ![alt text](image-11.png){width=700px}
+> ![alt text](resources/207/image-10.png){width=700px}
+> ![alt text](resources/207/image-11.png){width=700px}
 
 - MVCC:
     - Each txn keeps a copy of dirty page

@@ -65,3 +65,5 @@ nav:
 - Lecture25: Lecture25.md
 - append: COMP207.md
 
+extra_css:
+  - stylesheets/custom.css
