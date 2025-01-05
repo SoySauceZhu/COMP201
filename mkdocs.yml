@@ -55,6 +55,7 @@ extra:
 nav:
 - Welcome: index.md
 - Lecture2: Lecture2.md
+- Lecture3: Lecture3.md
 - Lecture14: Lecture14.md
 - Lecture15: Lecture15.md
 - Lecture16: Lecture16.md

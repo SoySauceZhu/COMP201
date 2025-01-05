@@ -35,3 +35,9 @@
 - Scrum: Incremental Development
     - Development and delivery is broken down into increments (*sprints*) that gives part of the functionality
     - High priority requirement are included in early increments
+
+## Summary
+- iterative process models describe the software process as a cycle of activities
+-  generic process models describe the organisation of software processes
+-   general activities are: specific specification design and implementation, validation and evolution
+- software process at the activities involved in producing and evolving a software system there were represented in a software process model
