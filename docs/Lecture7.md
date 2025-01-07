@@ -76,6 +76,7 @@ Viewpoints may be:
     - You should know data is modified when it is not integrity
 - Authentication & Authorization
 - Non-repudiation
+    - *repudiation: to refuse what you have compromised*
     - Sent message cannot be denied later. Non-regrettable
 - Availability (Performance security)
     - Resilience to power off, flood, damage of server
