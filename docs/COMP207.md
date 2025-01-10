@@ -182,7 +182,10 @@ You can have interleaved txns **touching different items**
 - Cartesian product
 - rename
 - Natural Join $\bowtie$
+    - `Select * from R1, R2`
 - Equi join $\bowtie_{\text{ID} = \text{StudentID}}$
+    - Equijoin is a type of join where the **condition uses equality (=)** between columns from two tables.
+    - `Select * from R1 join R2 on ID = StudentID`
 - Semi Join $\ltimes_{\text{condition}}$
     - A semijoin only includes tuples from the first relation that have matching tuples in the second relation , based on a specified condition
 
@@ -222,3 +225,86 @@ The key is to rewrite the initial query plan so the intermediate result will be 
 - Push projection down to the tree
 - Replace section of a Cartesian product with <del>natural join</del> 
 
+## Distributed Database
+
+### Fragmentation, replication and transparency
+
+**Fragmentation** 
+- Split database into different parts that can be stored at different nodes
+- Horizontal fragmentation
+    - Fragment by one or a few attributes (i.e. location), Or other conditions that are easily test
+- Vertical fragmentation
+
+Users don't see fragments, just the full relations.
+
+Redundancy improves resilience and efficiency (if you have query on Database that stores exactly what you want)
+
+**Replication:**
+
+- Full replication
+    - Each fragment is stored at every site (No fragments)
+    - Faster query answering
+    - Slow when updates
+- No replication
+    - Crash is catastrophic
+- Partial replication
+
+**Transparency**
+
+There were different levels (types?) of transparency
+
+- Fragmentation transparency.
+    -  Users can access data without knowing whether it is divided (fragmented) across multiple locations.
+-  Replication transparency.
+     -  Users are unaware of whether multiple copies (replicas) of data exist.
+-   Location transparency.
+    - Users or applications can access data without needing to know the physical location of the data
+-    Naming transparency.
+
+
+### Transaction management in distributed database
+
+**Voting!**
+
+**Transactions in D-DBMS**
+
+The central note instructs other note to make transactions. However, If there is a feeling note, Automate will be violated globally.
+
+**Distributed commit**
+
+**2 phase commit protocol**
+
+There will be a coordinator. They decide if and will local transaction can commit.
+
+Logging is recorded at each node locally. Message sent and retrieved from other nodes are logged too.
+
+Rule:
+
+- Phase 1: Decide when to commit or abort
+    - The coordinator send a "PREPARE" request to all participating nodes.
+    - Each note checks if it can commit the transaction and response yes or no.
+- Phase 2: Commit or abort
+    - If all node vote "yes", The coordinator sends a"COMMIT" Message and all nodes commit the transaction.
+    -  If any node votes "NO", the coordinator sends an "ABORT" message and all node abort
+
+Logging rule:
+
+![alt text](resources/207/image-15.png){width=700px}
+
+![alt text](resources/207/image-16.png){width=700px}
+
+### Query in distributed database
+
+Cost on message transition in high and slow.
+
+So we want to transfer as less data as possible
+
+**Semi join**
+
+Definition:
+
+$$R\ltimes S = R \bowtie (\pi_{\text{common attributes}}(S))$$
+
+![alt text](resources/207/image-17.png){width=700px}
+
+Applicable when $|\pi_\text{common attributes} (S) + |R\ltimes S|$ (S' + R') is smaller that $|R|$ (transfer R directly)
