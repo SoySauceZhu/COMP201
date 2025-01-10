@@ -2,12 +2,12 @@
 
 ## Testing Process
 1. Component Testing
-- Developer in responsible
-- Test are derived from developers' experience
+   - Developer in responsible
+   - Test are derived from developers' experience
 
 2. Integration Testing
-- Independent testing team in responsible
-- Test base on system specification
+   - Independent testing team in responsible
+   - Test base on system specification
 
 ## Defect testing
 - The goal of defect testing is to discover defects in programs, 
