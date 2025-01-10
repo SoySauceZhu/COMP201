@@ -32,6 +32,8 @@
 
 ## Equivalence partitioning
 ![alt text](resources/image10.png)
+
 - Partition out of all test input that generates the same output is called equivalent partition
 - So in order to cover all possible error, you should choose test data from different equivalent partitions
+
 ![alt text](resources/image12.png)
