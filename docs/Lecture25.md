@@ -1,4 +1,4 @@
-# Lecture 25
+# Software Testing
 
 ## Cyclomatic Complexity
 - The number of tests to test all control statement is the cyclomatic complexity

@@ -1,6 +1,4 @@
-# Lecture 15 
-
-## Distributed System Architectures
+# Distributed System Architectures
 
 ## Software Architectures
   - Architectural Design: 

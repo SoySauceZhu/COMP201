@@ -1,7 +1,4 @@
-
-# Lecture 18 
-
-## Hotel Booking System - case study
+# Hotel Booking System - case study
 
 ## Object-Oriented design and analysis
 - We should design the following things

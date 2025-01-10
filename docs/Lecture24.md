@@ -1,4 +1,4 @@
-# Lecture 24
+# Software Testing
 
 ## Testing Process
 1. Component Testing

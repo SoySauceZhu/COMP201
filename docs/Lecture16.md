@@ -1,7 +1,5 @@
 
-# Lecture 16 
-
-## Distributed System Architecture
+# Distributed System Architecture
 
 ## System Types
   - Personal System

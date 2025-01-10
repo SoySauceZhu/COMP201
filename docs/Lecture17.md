@@ -1,7 +1,4 @@
-
-# Lecture 17 
-
-## Object Oriented Programming
+# Object Oriented Programming
 
 ## Object Oriented
   - object incorporate both data structure and behavior
