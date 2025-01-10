@@ -3,7 +3,7 @@
 ## Verification & Validation
 - Verification: "If the program meets specification documentation"
 
-- Verification: "If the product meets user's expectation"
+- Validation: "If the product meets user's expectation"
 
 Validation > Verification
 

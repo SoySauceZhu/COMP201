@@ -216,6 +216,7 @@ Types:
 *Hash index are only good for equality while B+ trees are also good for ranges.*
 *Greater or Less invoke B+-, equal invoke both hash table and B+-*
 
+![alt text](resources/207/image-19.png){width=700px}
 
 ### Optimizing query plan
 
@@ -257,6 +258,8 @@ There were different levels (types?) of transparency
     -  Users can access data without knowing whether it is divided (fragmented) across multiple locations.
 -  Replication transparency.
      -  Users are unaware of whether multiple copies (replicas) of data exist.
+     -  Backup is a copy of data.  
+    ![alt text](resources/207/image-18.png){width=700px}
 -   Location transparency.
     - Users or applications can access data without needing to know the physical location of the data
 -    Naming transparency.
