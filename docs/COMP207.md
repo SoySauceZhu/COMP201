@@ -170,3 +170,55 @@ You can have interleaved txns **touching different items**
     - Grant all read request to txns
     - Grand write request only if items is NOT read in the future, otherwise abort and restart
     - There is also a strict variant, where you delay reads until the transaction you read from commits
+
+## Query Processing
+
+> Therefore, every relational algebra operation removes duplicates.
+
+### Relational Algebra
+
+- selection
+- projection
+- Cartesian product
+- rename
+- Natural Join $\bowtie$
+- Equi join $\bowtie_{\text{ID} = \text{StudentID}}$
+- Semi Join $\ltimes_{\text{condition}}$
+    - A semijoin only includes tuples from the first relation that have matching tuples in the second relation , based on a specified condition
+
+Selection (natural join (R1,R2)) = Natural join (selection (R1), section (R2))
+
+### Naive join
+Iterate through every line in R1 and find the same values for all common attribute in R2.
+
+Running time: $O(|R1|*|R2|)$
+
+### Faster Join
+
+**Merging**
+
+Goal: Compute R⋈_{A=B}S (no duplicates in join column)
+Method: Sort R and S, then only iterate once.
+Running time: $O(|R|+|S|+size of output) + O(|R|log|R|)+O(|S|log|S|)$
+
+### Index
+
+Given the value for one or more attributes of the a relation, Provide quick access to tuples with these values.
+
+Types:
+
+- Primary: A primary index is directly related to the primary key of a table. It is created automatically when a primary key is defined in the table.
+- Secondary: A secondary index is an additional index created on columns that are not part of the primary key. It provides an alternative pathway to retrieve data based on non-primary key attributes.
+
+*Hash index are only good for equality while B+ trees are also good for ranges.*
+*Greater or Less invoke B+-, equal invoke both hash table and B+-*
+
+
+### Optimizing query plan
+
+The key is to rewrite the initial query plan so the intermediate result will be smaller.
+
+- Push selection down to the bottom
+- Push projection down to the tree
+- Replace section of a Cartesian product with <del>natural join</del> 
+
