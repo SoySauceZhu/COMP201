@@ -88,4 +88,4 @@ Viewpoints may be:
     - Trusted Broker: acts as a trusted intermediary, relaying messages or transactions between parties while recording proof of the transaction.
 - Availability (Performance security)
     - Resilience to power off, flood, damage of server
-    - 9s: Uptime percentage out of running time. i.e. `0.99` or `99%` is 2 nines, $365 \time 24 \time 0.01 = 87.6\text{hrs of down time in a year}$
+    - 9s: Uptime percentage out of running time. i.e. `0.99` or `99%` is 2 nines, $365 \times 24 \times 0.01 = 87.6\text{hrs of down time in a year}$
