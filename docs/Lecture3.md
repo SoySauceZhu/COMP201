@@ -1,9 +1,14 @@
 # Lecture 3 Software Process
 
+- requirement engineering and specification
+- software design
+- programming testing and debugging
+- software evolution
+
 ## software specification
 - specification is the process of establishing what are required and the constrains of the systems operation and development
 - it may contains:
-    - Feasibility study
+    - ==Feasibility study==
     - Requirement elicitation(发掘) and analysis
     - Requirement specification
     - Requirement validation
@@ -18,7 +23,7 @@ It is the process of converting the system specification into an executable syst
     - Design the database website data structure, communication protocols
 - Software implementation
     - Translate this designs into an executable program
-- N.B. The activities of desire implementation are closely related and may be interleaved
+- N.B. The activities of desire implementation are ==closely related and may be interleaved==
 
 ### design process activities
 - Architectural design
@@ -51,11 +56,12 @@ It is the process of converting the system specification into an executable syst
 ## Programming and Debugging
 - Programming and debugging process is translating a design into a program and remove Error from the program
 - programming is usually a personal activity
-- programmers carry out some program testing to discover photos into the program and remove the files in the debugging process
+- programmers carry out some program testing to discover faults in the program and debug in the debugging process
 
-## Testing stage
 
 **Good programming is iterative**
+
+## Testing stage
 
 ![alt text](resources/image16.png){width=700px}
 
