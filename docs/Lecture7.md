@@ -1,16 +1,21 @@
 # Requirement engineering process
 
+- to describe the principal requirements engineering activities and their relationships
+- to introduce takings for requirement elicitation and analysis
+- to describe a requirement validation and a role of requirement reviews
+- to discuss the role of requirement management
+
 ## Requirement engineering process
 - Requirement Elicitation
     - What service do the user requires of the system
 - Requirement Analysis: 
-    - How to classify priorities and negotiate the requirement
+    - How to classify **priorities** and negotiate the requirement
 - Requirement validation
     - Does the proposed system complete what user requires. i.e. send draft to user 
 - Requirement management
     - Manage changes to the requirements document
 
-## Feasibility Studies
+### Feasibility Studies
 Whether the proposed system is worthwhile
 
 - If the system contributes to organisational objects
@@ -27,7 +32,7 @@ A report should include:
 - Economic feasibility
 - Scheduling feasibility
 
-## Elicitation and Analysis
+### Elicitation and Analysis
 - Aka requirement discovery
     - Gathering information
 - Technical staff working with customer to work out:
@@ -55,7 +60,7 @@ Viewpoints may be:
 - Engineers The responsible to develop and Maintain the system
 - Marketing staff
 
-### Techniques to develop elicitation:
+## Techniques to develop elicitation:
 - Prototyping
 - Interviewing
 - Ethnography:
@@ -72,11 +77,15 @@ Viewpoints may be:
     - Soft security: Permission - on IO side
     - Data should be secure in storage, on transition and as long as reasonably possible
 - Integrity
+    - Check if the data is been modified without notification or authorization
     - i.e. Hash check, CRC check, asymmetric cipher
-    - You should know data is modified when it is not integrity
 - Authentication & Authorization
+    - authentication for checking who you are
+    - authorisation for allowing what you can do
 - Non-repudiation
     - *repudiation: to refuse what you have compromised*
     - Sent message cannot be denied later. Non-regrettable
+    - Trusted Broker: acts as a trusted intermediary, relaying messages or transactions between parties while recording proof of the transaction.
 - Availability (Performance security)
     - Resilience to power off, flood, damage of server
+    - 9s: Uptime percentage out of running time. i.e. `0.99` or `99%` is 2 nines, $365 \time 24 \time 0.01 = 87.6\text{hrs of down time in a year}$
