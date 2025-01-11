@@ -15,13 +15,15 @@
 - Drawback: 
     - inflexible partitioning of project
     - difficult to update
+    - It describes a process of stepwise refinement of the requirement
 
 ![waterfall model](resources/image5.png)
 
 ### Evolutionary Development
-- Starting with a well-understood requirement
 - Develop software form a initial implementation, then refine (add new features) it based on user's response.
-- Evolutionary development involves Exploratory development
+- Evolutionary development involves **Exploratory** development. (Exploratory $\in$ Evolutionary)
+    - Exploratory development starts with a well-understood requirement
+    - The system evolves by adding new features
 
 - Drawbacks:
     - Lack of process visibility
@@ -32,9 +34,19 @@
 
 ### Agile and Scrum
 - Lightweight approach to software development
+- Test driven development
+- Pair programming
 - Scrum: Incremental Development
     - Development and delivery is broken down into increments (*sprints*) that gives part of the functionality
     - High priority requirement are included in early increments
+    - once the development of an increment is started, the requirements are frozen through requirements, so that later increment can continue to evolve.
+ 
+**Advantage**
+
+- Customers' value can be delivered with each increment, so system functionality is avaiable earlier.
+- early increments act as a prototype to help elicit requirements for later increment.
+- lower risk of overall project failure
+- the highest priority functions tend to receive more testing.
 
 ## Summary
 - iterative process models describe the software process as a cycle of activities
