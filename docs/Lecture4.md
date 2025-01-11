@@ -84,6 +84,7 @@ Problems arise when requirements are not precisely stated.
 - Consistent means requirements should be no conflicts or contradiction in the descriptions of system facilities
 
 > *Shall* for mandatory requirements, *Should* for desirable requirements
+> 
 > Avoid programmer jargon 您就甭吊坎了
 
 ## Requirement measures
