@@ -1,5 +1,9 @@
 # Software Requirement
 
+- introduced the concept of user and system requirement
+- functional and non-functional require requirement
+- explain two techniques for describing system requirements
+
 ## Requirement engineering
 requirement engineering is the process of establishing
 
@@ -28,10 +32,17 @@ Why do we need requirements?
 ## Types of requirements
 
 ### Levels
-- User requirements. You're really natural language and diagrams of services, Sometimes provide the operational constraints. Written for customers to interpretation.
-- System requirements. Structure document setting out detail description of the system services. Written as a contract between client and contractor.
+- User requirements. Using natural language and diagrams of services, Sometimes provide the operational constraints. Written for customers to negotiating.
+- System requirements. Structured document setting out detail description of the system services. Written as a contract between client and contractor.
 - Software specification, Describe the software design or implementation. Written for developers
     - i.e. NLP texts should be defined in UNICODE string. Using hash table to import code efficiency...
+ 
+**Note**
+
+- specification focuses on the services provided
+- General do not specify particular language to implement, he started focus on behaviour and the interfaces
+- the specification needs to be detailed enough, because:
+    - it will act as a base for the testing
 
 ### Functional and non-functional
 - Functional requirement is The statement of services that the system should provide, How the system should react to some impact, And what should be behave in particular situation
@@ -69,8 +80,11 @@ i.e. *Password should be easy to use* &
 Problems arise when requirements are not precisely stated.
 
 ## Requirement completeness and consistency
-- Complete means requirements should include descriptions for ll facilities
+- Complete means requirements should include descriptions for all facilities
 - Consistent means requirements should be no conflicts or contradiction in the descriptions of system facilities
+
+> *Shall* for mandatory requirements, *Should* for desirable requirements
+> Avoid programmer jargon 您就甭吊坎了
 
 ## Requirement measures
 ![alt text](resources/image17.png){width=700px}
