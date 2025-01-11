@@ -7,6 +7,8 @@ Finite state machine is a model of computational system consisting of
 - Input alphabet
 - Transition function that maps input symbols and current state to next state
 
+> In a finite state machine (FSM), a state represented by a double circle is a final state (or accepting state). 
+
 **Note**
 
 - State define behavior and the action of the system
