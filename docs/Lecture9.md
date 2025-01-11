@@ -1,5 +1,9 @@
 # System models
 
+- behavioural model (FSM, Petri-Net)
+- Data model
+- Object modelling (UML)
+
 ## System modelling
 Use our requirements must be written in such a way that non-technical experts can understand them (natural language)。
 
