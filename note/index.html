@@ -1,0 +1,1730 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>Lecture Note - COMP201: Software Engineering</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lecture-note" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="COMP201: Software Engineering" class="md-header__button md-logo" aria-label="COMP201: Software Engineering" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            COMP201: Software Engineering
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lecture Note
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="COMP201: Software Engineering" class="md-nav__button md-logo" aria-label="COMP201: Software Engineering" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    COMP201: Software Engineering
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture7
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture8
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture9
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture10
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture11
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture12
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture13
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture14
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture15/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture15
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture16/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture16
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture17/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture17
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture18/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture18
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture23/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture23
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture24/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture24
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture25/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture25
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture26/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture26
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture27/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture27
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../COMP207/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    append
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-14-design-methodology" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 14 Design Methodology
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lecture 14 Design Methodology">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#software-deign" class="md-nav__link">
+    <span class="md-ellipsis">
+      Software Deign
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-good-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a good system
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module Interface
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principles-for-good-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Principles for good design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coupling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coupling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cohesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cohesion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reusability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reusability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stepwise-refinement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stepwise Refinement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#good-practice-high-cohesion-loose-coupling-with-good-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Good Practice: High Cohesion, Loose Coupling with good interface
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-15-distributed-system-architectures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 15 Distributed System Architectures
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lecture 15 Distributed System Architectures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#software-architectures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Software Architectures
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architectural-design-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architectural Design process
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sub-systems-and-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sub-systems and Modules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benefit-of-subsystem-modelling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benefit of subsystem modelling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architectural-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architectural Models
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-structuring" class="md-nav__link">
+    <span class="md-ellipsis">
+      System structuring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repository-models-data-exchange-between-subsystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repository Models: data exchange between subsystem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client-server-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Client-Server Architecture
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#control-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Control model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modular-decomposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modular decomposition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-16-distributed-system-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 16 Distributed System Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lecture 16 Distributed System Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distributed-system-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Distributed System Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#middleware" class="md-nav__link">
+    <span class="md-ellipsis">
+      Middleware
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distributed-system-architectures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Distributed System Architectures
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architectural-models_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architectural Models
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layered-applications-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layered Applications Architecture
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thin-and-fat-clients" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thin and Fat clients
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#three-tier-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Three-Tier architecture
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-17-oop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 17 OOP
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lecture 17 OOP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#object-oriented" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object Oriented
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message" class="md-nav__link">
+    <span class="md-ellipsis">
+      message
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      interface
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inheritance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polymorphism" class="md-nav__link">
+    <span class="md-ellipsis">
+      Polymorphism
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-binding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic Binding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uml" class="md-nav__link">
+    <span class="md-ellipsis">
+      UML
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-18-hotel-booking-system-case-study" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 18 Hotel Booking System - case study
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lecture 18 Hotel Booking System - case study">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#object-oriented-design-and-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object-Oriented design and analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use case
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#noun-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Noun analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oo-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      OO analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class Diagram
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-2-software-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 2 Software Process
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lecture 2 Software Process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#software-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Software Process
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#software-process-model-development-patter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Software Process Model (Development Patter)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Software Process Model (Development Patter)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#waterfall-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Waterfall Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evolutionary-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evolutionary Development
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agile-and-scrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agile and Scrum
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="lecture-note">Lecture Note</h1>
+<h2 id="lecture-14-design-methodology">Lecture 14 Design Methodology</h2>
+<h3 id="software-deign">Software Deign</h3>
+<ul>
+<li>the design process is to derive a software solution that satisfy requirements. </li>
+</ul>
+<h3 id="what-is-a-good-system">What is a good system</h3>
+<ul>
+<li>Useful and usable</li>
+<li>Reliable (low coupling)</li>
+<li>Flexible (low coupled, high cohesion)</li>
+<li>Affordable (Reusability)</li>
+<li>Available (dev cost optimized by reusing)</li>
+</ul>
+<h3 id="module-interface">Module Interface</h3>
+<ul>
+<li>abstraction</li>
+<li>encapsulation: others cannot know the internal info unless interface allows</li>
+<li>change of internal state of a module doesn't affect other part of the system</li>
+</ul>
+<h3 id="principles-for-good-design">Principles for good design</h3>
+<ul>
+<li>Linguistic Modular Unit<ul>
+<li>i.e. Java classes. BASIC language is not Linguistic</li>
+</ul>
+</li>
+<li>Few interfaces<ul>
+<li>Module communicate with as few others as possible. i.e. facade structure</li>
+</ul>
+</li>
+<li>Small interfaces<ul>
+<li>The interface should concise, aka Loose coupling. Messaging between modules should be minimum</li>
+<li>The receiver does not change data of sender. i.e. using immutable data (string, ~~array,ptr,etc~~)</li>
+</ul>
+</li>
+<li>Explicit interfaces<ul>
+<li>The interface and document should be clear. i.e. Who is communicating with who</li>
+</ul>
+</li>
+<li>Information hiding<ul>
+<li>Make everything private</li>
+</ul>
+</li>
+</ul>
+<h3 id="coupling">Coupling</h3>
+<ul>
+<li>loose coupling means changes in a components not affect other components</li>
+<li>bad practice is 'shared variables/control event'</li>
+<li>good practice is 'decentralization / store states inside objects instead of shared repo'</li>
+<li>OOP is loosely coupled. Because no shared state and communication achieved by message passing. However, each object always coupled with its super-class</li>
+</ul>
+<h3 id="cohesion">Cohesion</h3>
+<ul>
+<li>each components only handle one problem logically</li>
+<li>Inheriting attributes from super-class weakens cohesion</li>
+<li>various levels:<ul>
+<li>coincidental Cohesion</li>
+<li>logical association</li>
+<li>temporal Cohesion</li>
+<li>communication Cohesion</li>
+<li>sequential Cohesion</li>
+<li>functional Cohesion</li>
+<li>object cohesion</li>
+</ul>
+</li>
+<li>cohesion &amp; encapsulation:<ul>
+<li>cohesion: how good the functionality of module is organized logically</li>
+<li>encapsulation: how good the data and methods are protected</li>
+</ul>
+</li>
+</ul>
+<h3 id="reusability">Reusability</h3>
+<ul>
+<li>Reusability ensures low cost of software</li>
+</ul>
+<h3 id="stepwise-refinement">Stepwise Refinement</h3>
+<ul>
+<li>Top-down split problems</li>
+<li>Recursively refine</li>
+<li>Until problem can be solved in 7-lines for example</li>
+</ul>
+<h3 id="good-practice-high-cohesion-loose-coupling-with-good-interface">Good Practice: High Cohesion, Loose Coupling with good interface</h3>
+<ul>
+<li>If so, the module is easy to reuse or even pluggable</li>
+</ul>
+<h2 id="lecture-15-distributed-system-architectures">Lecture 15 Distributed System Architectures</h2>
+<h3 id="software-architectures">Software Architectures</h3>
+<ul>
+<li>Architectural Design: <ul>
+<li>The early stage of design process, generate description of architecture</li>
+<li>Focuses on sub-systems (System components) and their communication &amp; control</li>
+<li>In parallel with other specification design</li>
+</ul>
+</li>
+</ul>
+<h3 id="architectural-design-process">Architectural Design process</h3>
+<ul>
+<li>System structuring: decompose systems into components and identify the communication</li>
+<li>Control modelling: determine the model of control relationship between components</li>
+<li>Modular decomposition: decompose sub-systems into modules</li>
+</ul>
+<h3 id="sub-systems-and-modules">Sub-systems and Modules</h3>
+<ul>
+<li>Sub-system: operation independently, separately. i.e. JAVA packages, login system</li>
+<li>Modules: in a sub-system, but work together.  </li>
+</ul>
+<h3 id="benefit-of-subsystem-modelling">Benefit of subsystem modelling</h3>
+<ul>
+<li>Re-assemble subsystem to build new system</li>
+</ul>
+<h3 id="architectural-models">Architectural Models</h3>
+<ul>
+<li>Different models may be produce during the design process</li>
+<li>Different perspective gives different Architectures<ul>
+<li>Static structural: merely show the components</li>
+<li>Dynamic process: who is calling how</li>
+<li>Interface model: define sub-system Interface</li>
+<li>relationship model: data-flow model</li>
+</ul>
+</li>
+</ul>
+<h3 id="system-structuring">System structuring</h3>
+<ul>
+<li>decompose the system into interacting components (sub-systems)</li>
+<li>use Block Diagram</li>
+</ul>
+<h3 id="repository-models-data-exchange-between-subsystem">Repository Models: data exchange between subsystem</h3>
+<ul>
+<li>central database: suitable for large data</li>
+<li>internal database: each components pass data to each other</li>
+</ul>
+<h3 id="client-server-architecture">Client-Server Architecture</h3>
+<ul>
+<li>components<ul>
+<li>servers</li>
+<li>clients: call on services</li>
+<li>networks</li>
+</ul>
+</li>
+<li>Feature<ul>
+<li>distribution of data</li>
+<li>effective use of networks</li>
+<li>easy to extend new servers or upgrade</li>
+<li>No shared data, data interchange inefficient</li>
+<li>Redundant management in servers</li>
+<li>Hard to parse server and services</li>
+</ul>
+</li>
+</ul>
+<h3 id="control-model">Control model</h3>
+<ul>
+<li>centralized control<ul>
+<li>one of subsystems control others</li>
+<li>call-return model</li>
+<li>top-down subroutines, using in sequential system</li>
+<li>NB, in a sequential model, events are also handled parallel in background in higher level</li>
+<li>manager model</li>
+<li>concurrent system, control subsystems in parallel</li>
+<li>real-time system control</li>
+</ul>
+</li>
+<li>event-based control: server's handler listening for events then response accordingly <ul>
+<li>broadcast model</li>
+<li>integrating different subsystem to response and working together</li>
+<li>control message is not embedded in event</li>
+<li>system not know when event happens</li>
+<li>NB, most of time is idle</li>
+<li>i.e broadcast -&gt; {LED1, LED2, LED3, LED4}</li>
+<li>interrupt-driven model</li>
+<li>NB, most of time is busy</li>
+<li>used in real time system, fast response</li>
+<li>there is a handler in each interrupt types. i.e. INTERRUPT A -&gt; LED1, INTERRUPT B -&gt; LED2 </li>
+</ul>
+</li>
+</ul>
+<h3 id="modular-decomposition">Modular decomposition</h3>
+<ul>
+<li>object model<ul>
+<li>loosely coupled objects and well-define interfaces</li>
+<li>include: classes, attribute, operations</li>
+</ul>
+</li>
+<li>data-flow model<ul>
+<li>defines the batch sequential pipeline, used in data processing system</li>
+<li>not suitable for interactive system</li>
+</ul>
+</li>
+</ul>
+<h2 id="lecture-16-distributed-system-architecture">Lecture 16 Distributed System Architecture</h2>
+<h3 id="system-types">System Types</h3>
+<ul>
+<li>Personal System</li>
+<li>Embedded System</li>
+<li>Distributed System</li>
+</ul>
+<h3 id="distributed-system-characteristics">Distributed System Characteristics</h3>
+<ul>
+<li>Resource Sharing</li>
+<li>Openness</li>
+<li>Concurrency</li>
+<li>Scalability</li>
+<li>Faulty Tolerance</li>
+<li>Transparency</li>
+<li>disadvantages: complex, security, manageability, unpredictability</li>
+</ul>
+<h3 id="middleware">Middleware</h3>
+<ul>
+<li>manage and supports different components of a distributed system</li>
+<li>usually off-the-shelf  </li>
+</ul>
+<h3 id="distributed-system-architectures">Distributed System Architectures</h3>
+<ul>
+<li>Client-server: Services are called by clients, and server response to the request (sockets)</li>
+<li>Distributed object architecture: each object can provide to others and use services from others (remote methods)</li>
+</ul>
+<h3 id="architectural-models_1">Architectural Models</h3>
+<ul>
+<li>Multi-processor<ul>
+<li>Simplest distributed system model</li>
+<li>System run task as processes at same time on different processor</li>
+<li>NB, if there is one physical processor, the OS will slicing the runtime and dispatch to different processes.</li>
+</ul>
+</li>
+<li>Client-server <ul>
+<li>Applications is modelled as a set of services</li>
+<li>Client knows of servers and server doesn't know of clients</li>
+<li>Client and server are logical problem. i.e. run a program listing to request repeatedly</li>
+<li>processor on server can handle multiple processes. </li>
+<li>a physical clients terminal can have multiple clients. (sending request by ports)</li>
+</ul>
+</li>
+<li>Distributed object architecture<ul>
+<li>Each distributed entity is an object that provides and receives services to and from others</li>
+<li>communication is done by Middleware</li>
+<li>complex to design</li>
+<li>pros: </li>
+<li>Service can be processed and computing on more than one node -- truly distributed</li>
+<li>Can add more computing resources is needed</li>
+<li>Flexible and Scalable</li>
+<li>Dynamically configuration as the objects can migrating across the networks</li>
+</ul>
+</li>
+</ul>
+<h3 id="layered-applications-architecture">Layered Applications Architecture</h3>
+<ul>
+<li>Presentation Layer</li>
+<li>Applications processing Layer</li>
+<li>data layer</li>
+</ul>
+<h3 id="thin-and-fat-clients">Thin and Fat clients</h3>
+<ul>
+<li>Thin: server handles the application layer and data later</li>
+<li>Fat: clients handle the application layer, server only send data</li>
+<li>Nowadays, it is combined. Backend running some security applications, and front end like mobile apps run the thick processing or simply thin UI </li>
+</ul>
+<h3 id="three-tier-architecture">Three-Tier architecture</h3>
+<ul>
+<li>Each layer runs on separate processor. i.e. on more than one server</li>
+<li>suitable for large scale applications with thousands of clients
+  <img alt="3-tier client-server architecture" src="../resources/image.png" /></li>
+</ul>
+<h2 id="lecture-17-oop">Lecture 17 OOP</h2>
+<h3 id="object-oriented">Object Oriented</h3>
+<ul>
+<li>object incorporate both data structure and behavior</li>
+<li>System functionality is expressed in terms of object services </li>
+</ul>
+<h3 id="object">Object</h3>
+<ul>
+<li>
+<p>behavior + state + identity</p>
+<ul>
+<li>state</li>
+<li>state of an object is all the data that it encapsulated</li>
+<li>objects has a number of attributes</li>
+<li>some attributes are mutable (address, reference) at the immutable</li>
+<li>behavior</li>
+<li>an object can understand certain messages, the messages is normally fixed like the set of attribute it has </li>
+<li>identity 
+  -objects are not defined just by the current value of their attributes</li>
+<li>the state of an object may change but is still the same object logically </li>
+</ul>
+</li>
+<li>
+<p>Firstly, don't think water and object will have, instead think what will it do for the system</p>
+</li>
+<li>objects are potentially reusable components</li>
+<li>An object is the thing you can interact with, i.e. You can send your request and get reaction.</li>
+<li>NB: How object behave may change as the current internal state of the object varies</li>
+<li>pros: no centralized data, only communicate by messaging. Independent encapsulated easy for maintenance</li>
+</ul>
+<h3 id="message">message</h3>
+<ul>
+<li>a message includes a selector, i.e. the method that returns the message. </li>
+<li>A message may have arguments </li>
+</ul>
+<h3 id="interface">interface</h3>
+<ul>
+<li>the public interface of a object defines which messages will be accepted</li>
+<li>an object can also send message to self, this is managed by public or private interface</li>
+<li>public interface: any part of the system can use</li>
+<li>private interface: object itself or other privileged components of the system</li>
+<li>An object can have several interfaces that from different view of point</li>
+</ul>
+<h3 id="class">Class</h3>
+<ul>
+<li>each object is an instance of a class</li>
+<li>class defines the message understandable as well as how object will response</li>
+<li>each instance has his own state, but share a same <code>static</code> state of the class</li>
+<li>A class encapsulates data and behavior, hiding the Implementation details</li>
+</ul>
+<h3 id="inheritance">Inheritance</h3>
+<ul>
+<li>inheritance is the sharing of attributes and operations in the hierarchy relationship</li>
+<li>subclass(superclass)</li>
+<li>Object class is always coupled to its superclass</li>
+</ul>
+<h3 id="polymorphism">Polymorphism</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">Doctor</span><span class="w"> </span><span class="n">dc1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Surgeon</span><span class="p">(</span><span class="s">&quot;Mingjie&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">Doctor</span><span class="w"> </span><span class="n">dc2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GeneralPracticer</span><span class="p">(</span><span class="s">&quot;mingjie&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">callDoctor</span><span class="p">(</span><span class="n">Doctor</span><span class="w"> </span><span class="n">dc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="c1">// You can pass dc1 or dc2 in this function</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="dynamic-binding">Dynamic Binding</h3>
+<p>The <code>print</code> method is bind dynamically to the subclass in the main method
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Printer</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Printer&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">LaserPrinter</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Printer</span><span class="p">{</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;LaserPrinter&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="n">Printer</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LaserPrinter</span><span class="p">();</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">  </span><span class="n">p</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"> </span><span class="c1">// ==&gt; &quot;LaserPrinter&quot;</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="p">}</span>
+</code></pre></div></p>
+<h3 id="uml">UML</h3>
+<ul>
+<li>UML is a language for specifying, visualizing and documenting</li>
+</ul>
+<h2 id="lecture-18-hotel-booking-system-case-study">Lecture 18 Hotel Booking System - case study</h2>
+<h3 id="object-oriented-design-and-analysis">Object-Oriented design and analysis</h3>
+<ul>
+<li>We should design the following things</li>
+<li>classes</li>
+<li>database</li>
+<li>attributes in of the class and database</li>
+<li>methods in the class</li>
+<li>In the design process, start think of candidate classes and then database tables</li>
+<li>Class persistence is achieved by database table</li>
+</ul>
+<h3 id="use-case">Use case</h3>
+<p>Use case of a hotel booking system may include
+<img alt="alt text" src="../resources/image3.png" /></p>
+<h3 id="noun-analysis">Noun analysis</h3>
+<ul>
+<li>Identifying nous in requirement helps to discover class names.</li>
+<li>Nouns in requirement may lead to classes name or attributes name or nothing.</li>
+<li>Attributes is inferred from document.</li>
+</ul>
+<h3 id="oo-analysis">OO analysis</h3>
+<p>Complete the class diagram:
+- Includes attributes
+- Relationship to other classes
+- Add method according to responsibility</p>
+<h3 id="class-diagram">Class Diagram</h3>
+<p><img alt="Class Diagram" src="../resources/image4.png" /></p>
+<h2 id="lecture-2-software-process">Lecture 2 Software Process</h2>
+<h3 id="software-process">Software Process</h3>
+<ul>
+<li>Life cycle: the process involves the building of a product. </li>
+<li>For a software, its life cycle terminates when the provider stops support. </li>
+</ul>
+<h3 id="software-process-model-development-patter">Software Process Model (Development Patter)</h3>
+<h4 id="waterfall-model">Waterfall Model</h4>
+<ul>
+<li>
+<p>A stepwise refinement of requirement.</p>
+</li>
+<li>
+<p>Suitable when the requirement is well-determined and understood.</p>
+</li>
+<li>
+<p>Drawback: </p>
+<ul>
+<li>inflexible partitioning of project</li>
+<li>difficult to update</li>
+</ul>
+</li>
+</ul>
+<p><img alt="waterfall model" src="../resources/image5.png" /></p>
+<h4 id="evolutionary-development">Evolutionary Development</h4>
+<ul>
+<li>Starting with a well-understood requirement</li>
+<li>Develop software form a initial implementation, then refine (add new features) it based on user's response.</li>
+<li>
+<p>Evolutionary development involves Exploratory development</p>
+</li>
+<li>
+<p>Drawbacks:</p>
+<ul>
+<li>Lack of process visibility</li>
+<li>Sometimes poorly structured</li>
+<li>Not suitable in safety critical projects</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Evolutionary Development" src="../resources/image6.png" /></p>
+<h4 id="agile-and-scrum">Agile and Scrum</h4>
+<ul>
+<li>Lightweight approach to software development</li>
+<li>Scrum: Incremental Development<ul>
+<li>Development and delivery is broken down into increments (<em>sprints</em>) that gives part of the functionality</li>
+<li>High priority requirement are included in early increments</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/SoySauceZhu/COMP201" target="_blank" rel="noopener" title="github@SoySauceZhu" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "search.highlight", "search.suggest", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,6 @@
+.highlight {
+    background-color: #ffeb3b; /* Your custom color */
+    color: #000;             /* Adjust text color for better readability */
+    padding: 0 0.2em;
+    border-radius: 3px;      /* Optional: add rounded corners */
+  }
