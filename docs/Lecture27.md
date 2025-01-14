@@ -15,4 +15,6 @@ The estimate defines the budget, And the product is adjusted to meet the budget.
     -  by looking at a similar project in the same application domain
 - Parkinson's law
     -  Parkinson's law states that work expands to fulfil the time available. The cost is determined by available resources rather than by objective statement. In general, "the project cost whatever resources are available"
+    -  disadvantage: System is usually unfinished
 - Pricing to win
+    -  the project cost whatever the customer has to spend on it
