@@ -311,3 +311,172 @@ $$R\ltimes S = R \bowtie (\pi_{\text{common attributes}}(S))$$
 ![alt text](resources/207/image-17.png){width=700px}
 
 Applicable when $|\pi_\text{common attributes} (S) + |R\ltimes S|$ (S' + R') is smaller that $|R|$ (transfer R directly)
+
+## Semi-structured data
+
+### Semi structured data
+
+Tree-like :
+
+- Leaf node: associated with data
+- Inner node: No data associated. Has labelled edges going to other nodes
+- Root: each node reachable from root
+
+### XML
+
+XML forms a tree-like graph, not allow child with multiple parents
+
+**XML file**
+
+- Tag (opening & closing)
+- element
+    - i.e. `<keyword> arbitrary text </keyword>`
+    - Elements may be nested, nesting must be proper
+    - Root element is contained by no one
+    - Case-sensitive
+    - May be empty, in short notation: `<keyword/>`
+- Attributes
+    - Elements can have attributes
+    - i.e. `<module code='COMP207' title='DBMS'/>` -- empty element with 2 attributes
+    - You cannot have `<module code='COMP207','COMP201' title='DBMS'/>` -- only one attribute of a given name
+    - When to use attributes or sub-elements:
+        - Staff ID of lecturer (either OK)
+        - Email address (not suitable for attr since I have more than one email)
+
+**Order**
+
+Elements in an XML document ordered as they occurred in the document
+
+### DTD document type definition
+
+```
+<!ELEMENT bookstore (book+)>
+<!ELEMENT book (title, author, price, year?)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ATTLIST book b_id ID #REQUIRED>
+<!ATTLIST book category (fiction | non-fiction | sci-fi | fantasy) #IMPLIED>
+```
+
+**ELEMENT**
+
+- `#PCDATA` a symbol for text data
+- `+` one or more
+- `*` any would ok
+- '?' zero or one
+- otherwise appear only once
+
+**ATTLIST**
+
+- `#IMPLIED` optional
+- `#REQUIRED`
+- `#FIXED`
+- data type
+    - `CDATA`: character data, text
+    - `ID`: data type for id. Allows unique key to be associated with an element. i.e. `@b_id="1"` or `@b_id=1` both work
+    - `IDREF/IDREFS`: reference to a ID attr
+    - Enumerated type
+ 
+**Validating**
+
+- Well formed: conforms to structural format
+    - Tested by Non-validating processor
+    - Only one root
+    - Branches and leaves no overlap
+- Well formed + DTD conformation
+    - Tested by validating processor
+
+**Q1**
+
+![alt text](resources/207/image-27.png){width=700px}
+
+
+
+### XPath
+
+XPath allows us to write queries that return a set of values or nodes from an XML document.
+
+The result is returned in document order
+
+![alt text](resources/207/image-20.png){width=700px}
+
+![alt text](resources/207/image-21.png){width=700px}
+
+- Attribute: `books/book[@id=1]/@category`
+- Axis("where to find"): 
+    - `books/child::book/@category` is same as omit child axis
+    - `books/book/attribute::category` = `book/@category`
+    - `books//title` = `books/descendant::title` find all `title` elements down from `books` node. ps. attributes (@) are not element
+    - `ancestor`
+    - `following-sibling`
+    - `preceding-sibling` NB. Born of the same mother
+    ![alt text](resources/207/image-22.png){width=700px}
+    - `parent` or `..`
+    - `self` or `.`
+- Conditions:
+    - `=, <, >, <=, >=, !=, and, or`
+    - `books/book[@category="novel"]`
+    - `library/book[title="The Invisible Library"]/@published`
+
+### XQuery
+
+![alt text](resources/207/image-23.png){width=700px}
+![alt text](resources/207/image-24.png){width=700px}
+
+- `where EVERY $m in $l/teaches satisfies $m/year<2`
+- `where SOME $m in $l/teaches satisfies $m/year<2`
+- **Return more than one element** `return <pair>{$s/name}, {$s/id}</pair>`  
+`{variable}` substituted variable name with real element 
+
+![alt text](resources/207/image-25.png){width=700px}
+
+
+- Ordered By  
+```
+let $doc := doc("mydoc.xml")
+for $b in $doc/books/book
+for $author in $b/author
+order by $author descending
+return <pair>{$b/title}, {$author}</pair>
+```
+- Group BY: `avg() count() min() max() sum()`  
+```
+let $doc := doc("mydoc.xml")
+for $m in $doc/university/student/module
+group by $mod := $m
+return <pair>{$mod}, {count($s)}</pair>
+```
+- Distinct value
+```
+distinct-values(
+let $doc := doc("mydoc.xml")
+for $m in $doc/university/student/module
+return $m
+)
+```
+
+**Q1**
+
+
+![alt text](resources/207/image-28.png){width=700px}
+
+
+### NoSQL
+
+CAP theorem: We cannot achieve at the same time:
+
+- COnsistency
+- Availability
+- Partition-tolerance
+
+### Key-value pair
+
+Store key-value pair in distributed way.
+
+Replication
+
+![alt text](resources/207/image-26.png){width=700px}
+
+## Data analysis
