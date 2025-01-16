@@ -33,7 +33,7 @@ Conflict equivalence focus on Order of conflicting operations. Two schedules are
 > Since in the question all updates (even half-executed) are saved to non-volatile memory (which breaks atomicity), durability is not violated.  
 ![alt text](resources/207/image.png){ width=700px }
 
-2. What Ensures ACID? 
+2. ==What Ensures ACID==? 
 - Isolation ensures that intermediate states of a transaction are not visible to other transactions. (Serial guarantees isolation)
     - Locks
     - MVCC
