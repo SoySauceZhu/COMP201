@@ -178,6 +178,10 @@ You can have interleaved txns **touching different items**
 
 > Therefore, every relational algebra operation removes duplicates.
 
+**Q1**
+
+![alt text](image-1.png){width=700px}
+
 ### Relational Algebra
 
 - selection
