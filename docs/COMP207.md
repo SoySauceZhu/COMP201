@@ -1,5 +1,8 @@
 # Database development
 
+## SQL
+
+![alt text](image.png)
 
 ## Transaction control
 
