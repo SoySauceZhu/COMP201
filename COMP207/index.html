@@ -1,0 +1,1983 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Lecture27/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>append - COMP201: Software Engineering</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#database-development" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="COMP201: Software Engineering" class="md-header__button md-logo" aria-label="COMP201: Software Engineering" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            COMP201: Software Engineering
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              append
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="COMP201: Software Engineering" class="md-nav__button md-logo" aria-label="COMP201: Software Engineering" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    COMP201: Software Engineering
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture7
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture8
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture9
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture10
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture11
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture12
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture13
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture14
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture15/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture15
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture16/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture16
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture17/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture17
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture18/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture18
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture23/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture23
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture24/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture24
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture25/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture25
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture26/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture26
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture27/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture27
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    append
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    append
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transaction-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transaction control
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transaction control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transaction-and-schedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transaction and Schedule
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acid" class="md-nav__link">
+    <span class="md-ellipsis">
+      ACID
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logging protocol
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recoverability-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recoverability (safety)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timestamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Timestamp
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query Processing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Query Processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relational-algebra" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational Algebra
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#naive-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naive join
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#faster-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      Faster Join
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#index" class="md-nav__link">
+    <span class="md-ellipsis">
+      Index
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimizing-query-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimizing query plan
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distributed-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Distributed Database
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Distributed Database">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fragmentation-replication-and-transparency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fragmentation, replication and transparency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transaction-management-in-distributed-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transaction management in distributed database
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-in-distributed-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query in distributed database
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#semi-structured-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Semi-structured data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semi-structured data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#semi-structured-data_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Semi structured data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xml" class="md-nav__link">
+    <span class="md-ellipsis">
+      XML
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#store-xml-in-relational-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Store XML in relational database
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dtd-document-type-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      DTD document type definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xpath" class="md-nav__link">
+    <span class="md-ellipsis">
+      XPath
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xquery" class="md-nav__link">
+    <span class="md-ellipsis">
+      XQuery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nosql" class="md-nav__link">
+    <span class="md-ellipsis">
+      NoSQL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-value-pair" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key-value pair
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data analysis
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transaction-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transaction control
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transaction control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transaction-and-schedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transaction and Schedule
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acid" class="md-nav__link">
+    <span class="md-ellipsis">
+      ACID
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logging protocol
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recoverability-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recoverability (safety)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timestamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Timestamp
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query Processing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Query Processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relational-algebra" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational Algebra
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#naive-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naive join
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#faster-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      Faster Join
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#index" class="md-nav__link">
+    <span class="md-ellipsis">
+      Index
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimizing-query-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimizing query plan
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distributed-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Distributed Database
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Distributed Database">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fragmentation-replication-and-transparency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fragmentation, replication and transparency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transaction-management-in-distributed-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transaction management in distributed database
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-in-distributed-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query in distributed database
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#semi-structured-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Semi-structured data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semi-structured data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#semi-structured-data_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Semi structured data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xml" class="md-nav__link">
+    <span class="md-ellipsis">
+      XML
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#store-xml-in-relational-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Store XML in relational database
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dtd-document-type-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      DTD document type definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xpath" class="md-nav__link">
+    <span class="md-ellipsis">
+      XPath
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xquery" class="md-nav__link">
+    <span class="md-ellipsis">
+      XQuery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nosql" class="md-nav__link">
+    <span class="md-ellipsis">
+      NoSQL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-value-pair" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key-value pair
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data analysis
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="database-development">Database development</h1>
+<h2 id="sql">SQL</h2>
+<p><img alt="alt text" src="../image.png" /></p>
+<h2 id="transaction-control">Transaction control</h2>
+<h3 id="transaction-and-schedule">Transaction and Schedule</h3>
+<ul>
+<li>
+<p>Q1</p>
+<blockquote>
+<ol>
+<li>Note, short hand notation only cares write and read operation, and ignores calculations. So two identical short hand schedule may have different result.<br />
+<img alt="alt text" src="../resources/207/image-4.png" width="700px" />
+<img alt="alt text" src="../resources/207/image-5.png" width="700px" /></li>
+</ol>
+</blockquote>
+</li>
+<li>
+<p><em>Equivalent</em><br />
+Conflict equivalence focus on Order of conflicting operations. Two schedules are conflict-equivalent if:</p>
+<ul>
+<li>They involve the same set of transactions.</li>
+<li>They have the same operations in the same order for conflicting operations (read-write, write-read, write-write on the same data item).</li>
+</ul>
+</li>
+<li>
+<p><em>Serializable</em></p>
+<ul>
+<li>Best by represent precedence graph, and find the path</li>
+<li><strong>2PL guarantees serializable</strong>. While normal locks don't.</li>
+<li>Ex. S: r1(X); w1(X); r2(Y); w3(Z); r3(X); c3; c1; r2(Z); c2;<br />
+  Is NOT serial. It is not one txn after another</li>
+</ul>
+</li>
+</ul>
+<h3 id="acid">ACID</h3>
+<ol>
+<li>
+<p>Q1</p>
+<blockquote>
+<ol>
+<li>Pay attention to "read" or "write" operation. -- "check" or "update" </li>
+<li>By default consider all update operations are reflected to non-volatile memory </li>
+<li>Durability: Durability consider whether a update that considered as committed (by schedule or by log file) is missing.<br />
+i.e. <em>If the system commits a transaction but does not actually write the data (or logs) to non-volatile storage, then a power loss or crash could erase the changes. This breaks durability because the transaction’s changes are not permanently saved.</em> <br />
+Since in the question all updates (even half-executed) are saved to non-volatile memory (which breaks atomicity), durability is not violated.<br />
+<img alt="alt text" src="../resources/207/image.png" width="700px" /></li>
+</ol>
+</blockquote>
+</li>
+<li>
+<p><mark>What Ensures ACID</mark>? </p>
+</li>
+<li>
+<p>Isolation ensures that intermediate states of a transaction are not visible to other transactions. (Serial guarantees isolation)</p>
+<ul>
+<li>Locks</li>
+<li>MVCC</li>
+</ul>
+</li>
+<li>
+<p>Atomicity ensures that a transaction is all-or-nothing. Either all its operations are completed, or none of them are.</p>
+<ul>
+<li>Undo Logging</li>
+<li>Undo/Redo logging</li>
+</ul>
+</li>
+<li>
+<p>Durability ensures that once a transaction commits, its changes are permanent, even in the event of a system crash.</p>
+<ul>
+<li>Logging</li>
+<li>Checkpoint</li>
+<li>Redo logging</li>
+<li>Un/re logging</li>
+</ul>
+</li>
+</ol>
+<h3 id="logging-protocol">Logging protocol</h3>
+<ol>
+<li>
+<p>Q1</p>
+<blockquote>
+<ol>
+<li>Undo/Redo logging -- both D &amp; A </li>
+<li>Force -- Durability, all committed updates are forces to reflected in non-volatile</li>
+<li>No Steal -- Atomicity, NO STEAL policy ensures that dirty pages (pages modified by uncommitted transactions aka. half-done updates) are not written to disk before the transaction commits.<br />
+<img alt="alt text" src="../resources/207/image-1.png" width="700px" /></li>
+</ol>
+</blockquote>
+</li>
+<li>
+<p>Q2</p>
+<blockquote>
+<ol>
+<li>I think he is bullshitting.</li>
+<li>找补: The file structure is identical, so it is possible to recover a redo log file under undo protocol.<br />
+<img alt="alt text" src="../resources/207/image-2.png" width="700px" /></li>
+</ol>
+</blockquote>
+</li>
+<li>
+<p>Q3</p>
+<blockquote>
+<ol>
+<li>You can't apply redo or undo protocol on undo/redo log file since the data structure is not compatible.<br />
+<img alt="alt text" src="../resources/207/image-3.png" width="700px" /></li>
+</ol>
+</blockquote>
+</li>
+<li>
+<p>Q4</p>
+<blockquote>
+<ol>
+<li>The expected starting log index satisfy:<br />
+(1) CHECKPOINT &amp; END CHECKPOINT both occurs after it<br />
+(2) It is a Start log or the first line<br />
+(3) It is the start log of the first uncommitted checking txn
+<img alt="alt text" src="../resources/207/image-6.png" width="700px" /></li>
+</ol>
+</blockquote>
+</li>
+<li>
+<p>Checkpoint</p>
+<ol>
+<li>Can be used to make the size of log file smaller</li>
+<li>ARIES checkpoint does not necessarily slower than simple checkpoints
+<img alt="alt text" src="../resources/207/image-7.png" width="700px" /></li>
+</ol>
+</li>
+</ol>
+<h3 id="recoverability-safety">Recoverability (safety)</h3>
+<p>This part consider about recoverability, focusing on operation to one shared item, and have nothing to do with serializable.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Key Condition</strong></th>
+<th><strong>Implication</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Recoverable</strong> (RC)</td>
+<td>A transaction that has read uncommitted data must commit <em>after</em> the writer commits.</td>
+<td>Prevents the committed transaction from depending on a later-aborted transaction.</td>
+</tr>
+<tr>
+<td><strong>Cascadeless</strong> (CC)</td>
+<td>No transaction reads uncommitted data (i.e., reads only committed values aka dirty read).</td>
+<td>Prevents “cascading” aborts; also implies RC (recoverable).</td>
+</tr>
+<tr>
+<td><strong>Strict</strong> (ST)</td>
+<td>No transaction reads <strong>or writes</strong> data written by an uncommitted transaction.</td>
+<td>Strongest condition; implies CC (and thus RC). Simplifies recovery by avoiding any use of uncommitted data.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Strict 2PL: All <strong>exclusive</strong> (write) locks are held by a transaction until that transaction commits or aborts.</li>
+<li>Strict 2PL ensures strict schedule, but basic 2PL doesn't.</li>
+<li>Strict 2PL doesn't ensure serial. Since 2PL focus on Isolation when two txn touch one item.<br />
+You can have interleaved txns <strong>touching different items</strong></li>
+<li>Strict &gt;&gt; Cascadeless &gt;&gt; Recoverable</li>
+<li>
+<p><mark>Strict &gt;&gt; Serializable, serializable + unlock after commit =&gt; strict</mark></p>
+</li>
+<li>
+<p>Example:</p>
+<ul>
+<li>not recoverable: w1(X) r2(X) c2 c1<br />
+(c1 might abort, thus T2 is depending on later aborted T1)</li>
+<li>recoverable: w1(X) w2(X) r2(X) c2 c1.<br />
+Since what T2 read is previously modified by itself. In other word, T2 doesn't depend on T1</li>
+<li>cascading: w1(X) r2(X) c1 c2.<br />
+Aborting T1 should roll back T2 as well since T2 depends on T1</li>
+<li>cascadeless: w1(X) w2(X) c1 c2.   <br />
+Aborting T1 will not affect T2, since T2 doesn't depend on T1</li>
+<li>recoverable but not serializable: w2(X) w1(X) r2(X) c1 c2<br />
+(cyclic precedence graph)</li>
+<li>Serializable but not recoverable: w1(X) r2(X) w2(X) c2 c1<br />
+(equivalent to T2 -&gt; T1, X is written by T1)</li>
+<li>Deadlock can happen in strict schedule.<br />
+Strict schedule and strict 2PL describe how to ensure isolation. Deadlock describe how to assign two txns to schedule.  i.e. A partial schedule is strict yet has a deadlock.</li>
+</ul>
+</li>
+<li>
+<p>Question</p>
+<blockquote>
+<p>Deadlock May happen in recoverable schedule<br />
+T1: w1(X) w1(Y)<br />
+T2: w2(Y) w2(X) <br />
+Partial schedule that lead to deadlock: w1(X) w2(Y) __ __ c1 c2
+2PL lock schedule also may occur deadlock: w1(X) w2(Y) __ __<br />
+<mark>In other word, follow (strict-)2PL doesn't mean deadlock-free</mark> <br />
+<mark>Prevent deadlock: Timestamp-bases protocols (i.e. wound-wait), time out protocols</mark>
+<img alt="alt text" src="../resources/207/image-8.png" width="700px" /></p>
+</blockquote>
+</li>
+<li>
+<p>Additional question</p>
+<blockquote>
+<p><img alt="alt text" src="../resources/207/image-13.png" width="700px" /></p>
+</blockquote>
+</li>
+<li>
+<p>Question</p>
+<blockquote>
+<p>No conflict mean not possible for different txns to read same item, therefore no read dirty page, all strict schedule
+<img alt="alt text" src="../resources/207/image-14.png" width="700px" /></p>
+</blockquote>
+</li>
+<li>
+<p>Question</p>
+<blockquote>
+<p>Serializable and strict<br />
+I think Strict guarantees Serializability,<br />
+since is you don't read or write uncommitted data, you naturally have all conflict operation pairs in same order.<br />
+<img alt="alt text" src="../resources/207/image-12.png" width="700px" /></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="timestamp">Timestamp</h3>
+<ul>
+<li>
+<p>Deadlock detection:</p>
+<ul>
+<li>Wait-for graph</li>
+<li>Timestamp based:<ul>
+<li>Time-out scheme</li>
+<li>Wait-die scheme (both detect &amp; prevent)</li>
+<li>Wound-wait scheme (both detect &amp; prevent)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Timestamp helps Detecting deadlock and let scheduler abort some txn (<mark>same timestamp</mark>) <br />
+<mark>This is related to lock and dependencies.</mark></p>
+<ul>
+<li>Wait-Die: If older waits for younger, older wait. If younger wait for older, younger roll back and abort (not allowed) (restart with same timestamp).  </li>
+<li>Wound-Wait: If older wait for younger, older preempts younger txn, younger roll back. If younger wait for older, younger wait.<br />
+<img alt="alt text" src="../resources/207/image-9.png" width="700px" /></li>
+</ul>
+</li>
+<li>
+<p>Timestamp to prevent dead lock (<mark>new timestamp</mark>)<br />
+<mark>This only cares about timestamp</mark></p>
+<ul>
+<li>Prevent (abort and restart) read request of an item if it is written in the future</li>
+<li>Prevent (abort and restart) write request of an item if it is read or written in the future</li>
+</ul>
+</li>
+<li>
+<p><mark>Timestamp-based scheduling</mark></p>
+<ul>
+<li>Pro:<ul>
+<li>Enforce conflict-schedule (N.B. 2PL ensure serializability)</li>
+<li>Prevent deadlock </li>
+</ul>
+</li>
+<li>
+<p>Con:</p>
+<ul>
+<li>Cascading roll backs</li>
+<li>Starvation may occur (cyclic aborts and restart). Starvation can be prevent.</li>
+</ul>
+</li>
+<li>
+<p>Timestamp based schedule may not ensure strict schedule.</p>
+<ul>
+<li>Additional condition: Delay all read and write requests until the youngest transaction who wrote the item has committed</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Q1: <strong>TODO</strong></p>
+<blockquote>
+<p><img alt="alt text" src="../resources/207/image-10.png" width="700px" />
+<img alt="alt text" src="../resources/207/image-11.png" width="700px" /></p>
+</blockquote>
+</li>
+<li>
+<p>MVCC:</p>
+<ul>
+<li>Each txn keeps a copy of dirty page</li>
+<li>Grant all read request to txns</li>
+<li>Grand write request only if items is NOT read in the future, otherwise abort and restart</li>
+<li>There is also a strict variant, where you delay reads until the transaction you read from commits</li>
+</ul>
+</li>
+</ul>
+<h2 id="query-processing">Query Processing</h2>
+<blockquote>
+<p>Therefore, every relational algebra operation removes duplicates.</p>
+</blockquote>
+<p><strong>Q1</strong></p>
+<p><img alt="alt text" src="../image-1.png" width="700px" /></p>
+<h3 id="relational-algebra">Relational Algebra</h3>
+<ul>
+<li>selection</li>
+<li>projection</li>
+<li>Cartesian product</li>
+<li>rename</li>
+<li>Natural Join <span class="arithmatex">\(\bowtie\)</span><ul>
+<li><code>Select * from R1, R2</code></li>
+</ul>
+</li>
+<li>Equi join <span class="arithmatex">\(\bowtie_{\text{ID} = \text{StudentID}}\)</span><ul>
+<li>Equijoin is a type of join where the <strong>condition uses equality (=)</strong> between columns from two tables.</li>
+<li><code>Select * from R1 join R2 on ID = StudentID</code></li>
+</ul>
+</li>
+<li>Semi Join <span class="arithmatex">\(\ltimes_{\text{condition}}\)</span><ul>
+<li>A semijoin only includes tuples from the first relation that have matching tuples in the second relation , based on a specified condition</li>
+</ul>
+</li>
+</ul>
+<p>Selection (natural join (R1,R2)) = Natural join (selection (R1), section (R2))</p>
+<h3 id="naive-join">Naive join</h3>
+<p>Iterate through every line in R1 and find the same values for all common attribute in R2.</p>
+<p>Running time: <span class="arithmatex">\(O(|R1|*|R2|)\)</span></p>
+<h3 id="faster-join">Faster Join</h3>
+<p><strong>Merging</strong></p>
+<p>Goal: Compute R⋈_{A=B}S (no duplicates in join column)
+Method: Sort R and S, then only iterate once.
+Running time: <span class="arithmatex">\(O(|R|+|S|+size of output) + O(|R|log|R|)+O(|S|log|S|)\)</span></p>
+<h3 id="index">Index</h3>
+<p>Given the value for one or more attributes of the a relation, Provide quick access to tuples with these values.</p>
+<p>Types:</p>
+<ul>
+<li>Primary: A primary index is directly related to the primary key of a table. It is created automatically when a primary key is defined in the table.</li>
+<li>Secondary: A secondary index is an additional index created on columns that are not part of the primary key. It provides an alternative pathway to retrieve data based on non-primary key attributes.</li>
+</ul>
+<p><em>Hash index are only good for equality while B+ trees are also good for ranges.</em>
+<em>Greater or Less invoke B+-, equal invoke both hash table and B+-</em></p>
+<p><img alt="alt text" src="../resources/207/image-19.png" width="700px" /></p>
+<h3 id="optimizing-query-plan">Optimizing query plan</h3>
+<p>The key is to rewrite the initial query plan so the intermediate result will be smaller.</p>
+<ul>
+<li>Push selection down to the bottom</li>
+<li>Push projection down to the tree</li>
+<li>Replace section of a Cartesian product with <del>natural join</del> </li>
+</ul>
+<h2 id="distributed-database">Distributed Database</h2>
+<h3 id="fragmentation-replication-and-transparency">Fragmentation, replication and transparency</h3>
+<p><strong>Fragmentation</strong> 
+- Split database into different parts that can be stored at different nodes
+- Horizontal fragmentation
+    - Fragment by one or a few attributes (i.e. location), Or other conditions that are easily test
+- Vertical fragmentation</p>
+<p>Users don't see fragments, just the full relations.</p>
+<p>Redundancy improves resilience and efficiency (if you have query on Database that stores exactly what you want)</p>
+<p><strong>Replication:</strong></p>
+<ul>
+<li>Full replication<ul>
+<li>Each fragment is stored at every site (No fragments)</li>
+<li>Faster query answering</li>
+<li>Slow when updates</li>
+</ul>
+</li>
+<li>No replication<ul>
+<li>Crash is catastrophic</li>
+</ul>
+</li>
+<li>Partial replication</li>
+</ul>
+<p><strong>Transparency</strong></p>
+<p>There were different levels (types?) of transparency</p>
+<ul>
+<li>Fragmentation transparency.<ul>
+<li>Users can access data without knowing whether it is divided (fragmented) across multiple locations.</li>
+</ul>
+</li>
+<li>Replication transparency.<ul>
+<li>Users are unaware of whether multiple copies (replicas) of data exist.</li>
+<li>Backup is a copy of data.<br />
+<img alt="alt text" src="../resources/207/image-18.png" width="700px" /></li>
+</ul>
+</li>
+<li>Location transparency.<ul>
+<li>Users or applications can access data without needing to know the physical location of the data</li>
+</ul>
+</li>
+<li>Naming transparency.</li>
+</ul>
+<h3 id="transaction-management-in-distributed-database">Transaction management in distributed database</h3>
+<p><strong>Voting!</strong></p>
+<p><strong>Transactions in D-DBMS</strong></p>
+<p>The central note instructs other note to make transactions. However, If there is a feeling note, Automate will be violated globally.</p>
+<p><strong>Distributed commit</strong></p>
+<p><strong>2 phase commit protocol</strong></p>
+<p>There will be a coordinator. They decide if and will local transaction can commit.</p>
+<p>Logging is recorded at each node locally. Message sent and retrieved from other nodes are logged too.</p>
+<p>Rule:</p>
+<ul>
+<li>Phase 1: Decide when to commit or abort<ul>
+<li>The coordinator send a "PREPARE" request to all participating nodes.</li>
+<li>Each note checks if it can commit the transaction and response yes or no.</li>
+</ul>
+</li>
+<li>Phase 2: Commit or abort<ul>
+<li>If all node vote "yes", The coordinator sends a"COMMIT" Message and all nodes commit the transaction.</li>
+<li>If any node votes "NO", the coordinator sends an "ABORT" message and all node abort</li>
+</ul>
+</li>
+</ul>
+<p>Logging rule:</p>
+<p><img alt="alt text" src="../resources/207/image-15.png" width="700px" /></p>
+<p><img alt="alt text" src="../resources/207/image-16.png" width="700px" /></p>
+<h3 id="query-in-distributed-database">Query in distributed database</h3>
+<p>Cost on message transition in high and slow.</p>
+<p>So we want to transfer as less data as possible</p>
+<p><strong>Semi join</strong></p>
+<p>Definition:</p>
+<div class="arithmatex">\[R\ltimes S = R \bowtie (\pi_{\text{common attributes}}(S))\]</div>
+<p><img alt="alt text" src="../resources/207/image-17.png" width="700px" /></p>
+<p>Applicable when <span class="arithmatex">\(|\pi_\text{common attributes} (S) + |R\ltimes S|\)</span> (S' + R') is smaller that <span class="arithmatex">\(|R|\)</span> (transfer R directly)</p>
+<p><strong>Q1</strong></p>
+<p><img alt="alt text" src="../image-2.png" width="700px" /></p>
+<h2 id="semi-structured-data">Semi-structured data</h2>
+<h3 id="semi-structured-data_1">Semi structured data</h3>
+<p>Tree-like :</p>
+<ul>
+<li>Leaf node: associated with data</li>
+<li>Inner node: No data associated. Has labelled edges going to other nodes</li>
+<li>Root: each node reachable from root</li>
+</ul>
+<h3 id="xml">XML</h3>
+<p>XML forms a tree-like graph, not allow child with multiple parents</p>
+<p><strong>XML file</strong></p>
+<ul>
+<li>Tag (opening &amp; closing)</li>
+<li>element<ul>
+<li>i.e. <code>&lt;keyword&gt; arbitrary text &lt;/keyword&gt;</code></li>
+<li>Elements may be nested, nesting must be proper</li>
+<li>Root element is contained by no one</li>
+<li>Case-sensitive</li>
+<li>May be empty, in short notation: <code>&lt;keyword/&gt;</code></li>
+</ul>
+</li>
+<li>Attributes<ul>
+<li>Elements can have attributes</li>
+<li>i.e. <code>&lt;module code='COMP207' title='DBMS'/&gt;</code> -- empty element with 2 attributes</li>
+<li>You cannot have <code>&lt;module code='COMP207','COMP201' title='DBMS'/&gt;</code> -- only one attribute of a given name</li>
+<li>When to use attributes or sub-elements:<ul>
+<li>Staff ID of lecturer (either OK)</li>
+<li>Email address (not suitable for attr since I have more than one email)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Order</strong></p>
+<p>Elements in an XML document ordered as they occurred in the document</p>
+<h3 id="store-xml-in-relational-database">Store XML in relational database</h3>
+<ul>
+<li>store XML file as attribute</li>
+<li>shred XML attributes, then store each (in shredded form)</li>
+<li>store a schema-independent form<ul>
+<li>Each row is an attribute, i.e <code>(parent, child, datatype, data)</code></li>
+</ul>
+</li>
+<li>Storing the full XML tree in the database</li>
+</ul>
+<h3 id="dtd-document-type-definition">DTD document type definition</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>&lt;!ELEMENT bookstore (book+)&gt;
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>&lt;!ELEMENT book (title, author, price, year?)&gt;
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>&lt;!ELEMENT title (#PCDATA)&gt;
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>&lt;!ELEMENT author (#PCDATA)&gt;
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>&lt;!ELEMENT price (#PCDATA)&gt;
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>&lt;!ELEMENT year (#PCDATA)&gt;
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>&lt;!ATTLIST book b_id ID #REQUIRED&gt;
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>&lt;!ATTLIST book category (fiction | non-fiction | sci-fi | fantasy) #IMPLIED&gt;
+</code></pre></div>
+<p><strong>ELEMENT</strong></p>
+<ul>
+<li><code>#PCDATA</code> a symbol for text data</li>
+<li><code>+</code> one or more</li>
+<li><code>*</code> any would ok</li>
+<li>'?' zero or one</li>
+<li>otherwise appear only once</li>
+</ul>
+<p><strong>ATTLIST</strong></p>
+<ul>
+<li><code>#IMPLIED</code> optional</li>
+<li><code>#REQUIRED</code></li>
+<li><code>#FIXED</code></li>
+<li>data type<ul>
+<li><code>CDATA</code>: character data, text</li>
+<li><code>ID</code>: data type for id. Allows unique key to be associated with an element. i.e. <code>@b_id="1"</code> or <code>@b_id=1</code> both work</li>
+<li><code>IDREF/IDREFS</code>: reference to a ID attr</li>
+<li>Enumerated type</li>
+</ul>
+</li>
+</ul>
+<p><strong>Validating</strong></p>
+<ul>
+<li>Well formed: conforms to structural format<ul>
+<li>Tested by Non-validating processor</li>
+<li>Only one root</li>
+<li>Branches and leaves no overlap</li>
+</ul>
+</li>
+<li>Well formed + DTD conformation<ul>
+<li>Tested by validating processor</li>
+</ul>
+</li>
+</ul>
+<p><strong>Q1</strong></p>
+<p><img alt="alt text" src="../resources/207/image-27.png" width="700px" /></p>
+<h3 id="xpath">XPath</h3>
+<p>XPath allows us to write queries that return a set of values or nodes from an XML document.</p>
+<p>The result is returned in document order</p>
+<p><img alt="alt text" src="../resources/207/image-20.png" width="700px" /></p>
+<p><img alt="alt text" src="../resources/207/image-21.png" width="700px" /></p>
+<ul>
+<li>Attribute: <code>books/book[@id=1]/@category</code></li>
+<li>Axis("where to find"): <ul>
+<li><code>books/child::book/@category</code> is same as omit child axis</li>
+<li><code>books/book/attribute::category</code> = <code>book/@category</code></li>
+<li><code>books//title</code> = <code>books/descendant::title</code> find all <code>title</code> elements down from <code>books</code> node. ps. attributes (@) are not element</li>
+<li><code>ancestor</code></li>
+<li><code>following-sibling</code></li>
+<li><code>preceding-sibling</code> NB. Born of the same mother
+<img alt="alt text" src="../resources/207/image-22.png" width="700px" /></li>
+<li><code>parent</code> or <code>..</code></li>
+<li><code>self</code> or <code>.</code></li>
+</ul>
+</li>
+<li>Conditions:<ul>
+<li><code>=, &lt;, &gt;, &lt;=, &gt;=, !=, and, or</code></li>
+<li><code>books/book[@category="novel"]</code></li>
+<li><code>library/book[title="The Invisible Library"]/@published</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="xquery">XQuery</h3>
+<p><img alt="alt text" src="../resources/207/image-23.png" width="700px" />
+<img alt="alt text" src="../resources/207/image-24.png" width="700px" /></p>
+<ul>
+<li><code>where EVERY $m in $l/teaches satisfies $m/year&lt;2</code></li>
+<li><code>where SOME $m in $l/teaches satisfies $m/year&lt;2</code></li>
+<li><strong>Return more than one element</strong> <code>return &lt;pair&gt;{$s/name}, {$s/id}&lt;/pair&gt;</code><br />
+<code>{variable}</code> substituted variable name with real element </li>
+</ul>
+<p><img alt="alt text" src="../resources/207/image-25.png" width="700px" /></p>
+<ul>
+<li>Ordered By<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>let $doc := doc(&quot;mydoc.xml&quot;)
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>for $b in $doc/books/book
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>for $author in $b/author
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>order by $author descending
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>return &lt;pair&gt;{$b/title}, {$author}&lt;/pair&gt;
+</code></pre></div></li>
+<li>Group BY: <code>avg() count() min() max() sum()</code><br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>let $doc := doc(&quot;mydoc.xml&quot;)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>for $m in $doc/university/student/module
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>group by $mod := $m
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>return &lt;pair&gt;{$mod}, {count($s)}&lt;/pair&gt;
+</code></pre></div></li>
+<li>Distinct value
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>distinct-values(
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>let $doc := doc(&quot;mydoc.xml&quot;)
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>for $m in $doc/university/student/module
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>return $m
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>)
+</code></pre></div></li>
+</ul>
+<p><strong>Q1</strong></p>
+<p><img alt="alt text" src="../resources/207/image-28.png" width="700px" /></p>
+<h3 id="nosql">NoSQL</h3>
+<p>CAP theorem: We cannot achieve at the same time:</p>
+<ul>
+<li>COnsistency</li>
+<li>Availability</li>
+<li>Partition-tolerance</li>
+</ul>
+<p><strong>Approach for noSQL storing</strong></p>
+<ul>
+<li>Key-value pair</li>
+<li>column store</li>
+<li>document store</li>
+<li>graph databases</li>
+</ul>
+<h3 id="key-value-pair">Key-value pair</h3>
+<p>Store key-value pair in distributed way.</p>
+<p>Replication</p>
+<p><img alt="alt text" src="../resources/207/image-26.png" width="700px" /></p>
+<h2 id="data-analysis">Data analysis</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Lecture27/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lecture27">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Lecture27
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/SoySauceZhu/COMP201" target="_blank" rel="noopener" title="github@SoySauceZhu" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "search.highlight", "search.suggest", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
