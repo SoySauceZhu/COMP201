@@ -153,7 +153,7 @@ You can have interleaved txns **touching different items**
     - Prevent (abort and restart) read request of an item if it is written in the future
     - Prevent (abort and restart) write request of an item if it is read or written in the future
 
-- Timestamp-based scheduling
+- ==Timestamp-based scheduling==
     - Pro:
         - Enforce conflict-schedule (N.B. 2PL ensure serializability)
         - Prevent deadlock 
@@ -354,6 +354,13 @@ XML forms a tree-like graph, not allow child with multiple parents
 
 Elements in an XML document ordered as they occurred in the document
 
+### Store XML in relational database
+
+- store XML file as attribute
+- shred XML attributes, then store each (in shredded form)
+- sotre a schema-independent form
+      - Each row is an attribute, i.e `(parent, child, datatype, data)`
+
 ### DTD document type definition
 
 ```
@@ -477,6 +484,13 @@ CAP theorem: We cannot achieve at the same time:
 - COnsistency
 - Availability
 - Partition-tolerance
+
+**Approach for noSQL storing**
+
+- Key-value pair
+- column store
+- document store
+- graph databases
 
 ### Key-value pair
 
