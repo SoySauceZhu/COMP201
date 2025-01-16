@@ -153,7 +153,7 @@ You can have interleaved txns **touching different items**
     - Prevent (abort and restart) read request of an item if it is written in the future
     - Prevent (abort and restart) write request of an item if it is read or written in the future
 
-- Timestamp-based scheduling
+- ==Timestamp-based scheduling==
     - Pro:
         - Enforce conflict-schedule (N.B. 2PL ensure serializability)
         - Prevent deadlock 
