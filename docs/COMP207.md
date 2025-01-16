@@ -319,6 +319,10 @@ $$R\ltimes S = R \bowtie (\pi_{\text{common attributes}}(S))$$
 
 Applicable when $|\pi_\text{common attributes} (S) + |R\ltimes S|$ (S' + R') is smaller that $|R|$ (transfer R directly)
 
+**Q1**
+
+![alt text](image-2.png){width=700px}
+
 ## Semi-structured data
 
 ### Semi structured data
